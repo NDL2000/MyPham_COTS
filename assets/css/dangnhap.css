@@ -1,0 +1,117 @@
+body {
+    background:url(https://preview.colorlib.com/theme/bootstrap/login-form-20/images/xbg.jpg.pagespeed.ic.tiVxeakBSd.webp);
+    margin:0px;
+    font-family: 'Ubuntu', sans-serif;
+      background-size: 100% 110%;
+  }
+  h1, h2, h3, h4, h5, h6, a {
+    margin:0; padding:0;
+  }
+  .login {
+    margin:0 auto;
+    max-width:500px;
+  }
+  .login-header {
+    color:#fff;
+    text-align:center;
+    font-size:300%;
+  }
+  /* .login-header h1 {
+     text-shadow: 0px 5px 15px #000; */
+
+  .login-form {
+    border:.5px solid #fff;
+    background:#4facff1f;
+    border-radius:10px;
+    box-shadow:0px 0px 10px #000;
+  }
+  .login-form h3 {
+    text-align:left;
+    margin-left:40px;
+    color:#fff;
+  }
+  .login-form {
+    box-sizing:border-box;
+    padding-top:15px;
+    padding-bottom:3%;
+    margin:5% auto;
+    text-align:center;
+  }
+  .login input[type="text"],
+  .login input[type="password"] {
+    max-width:400px;
+      width: 80%;
+    line-height:3em;
+    font-family: 'Ubuntu', sans-serif;
+    margin:1em 2em;
+    border-radius:5px;
+    border:2px solid #f2f2f2;
+    outline:none;
+    padding-left:10px;
+    opacity: 0.5;
+  }
+  .login input[type="text"]:focus {
+    opacity: 1;
+  }
+  .login input[type="password"]:focus {
+    opacity: 1;
+  }
+  .login-form input[type="submit"] {
+    height: 35px;
+    width: 120px;
+    background:#24c817d9;
+    border:1px solid #f2f2f2;
+    border-radius:20px;
+    color: #f5f5f5;
+    text-transform:uppercase;
+    font-family: 'Ubuntu', sans-serif;
+    cursor:pointer;
+  }
+  .login-form input[type="submit"]:hover {
+    background:#fff0;
+    color: #00f904e8;
+  }
+  .sign-up{
+    color:#00f904e8;
+    margin-left:-70%;
+    cursor:pointer;
+    text-decoration:underline;
+    font-weight: bold;
+  }
+  .no-access {
+    color:#ff2600;
+    margin:20px 0px 20px -62%;
+    text-decoration:underline;
+    cursor:pointer;
+  }
+  .try-again {
+    color:#f2f2f2;
+    text-decoration:underline;
+    cursor:pointer;
+  }
+  .captcha {
+    margin-top: 20px;
+    letter-spacing: 10px;
+    transform: translate(245px, -78px);
+  }
+  .img-captcha {
+    width: 30%;
+    margin-left: -250px;
+  }
+  .details-captcha {
+    transform: translateY(-58px);
+    margin-left: -235px;
+  }
+  /*Media Querie*/
+  @media only screen and (min-width : 150px) and (max-width : 530px){
+    .login-form h3 {
+      text-align:center;
+      margin:0;
+    }
+    .sign-up, .no-access {
+      margin:10px 0;
+    }
+    .login-button {
+      margin-bottom:10px;
+    }
+  }
