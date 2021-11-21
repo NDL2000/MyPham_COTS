@@ -36,8 +36,13 @@
 				<ul class="active1">
 					<?php if(isset($_SESSION['admin'])) {?>
 					<li><a href="./index.php?url=QlTK"><i class="far fa-user" id="icon"></i>Quản lý tài khoản </a></li>
-					<li><a href="./index.php?url=qldm"><i class="fas fa-list-ul" id="icon"></i>Quản lý danh mục </a></li>
-					<li><a href="./index.php?url="><i class="fas fa-house-user" id="icon"></i>Quản lý nhà cung cấp</a></li>
+					<li><a href="#"><i class="fas fa-list-ul" id="icon"></i>Quản lý danh mục </a>
+						<ul class="submenu">
+							<li><a href="./index.php?url=duyet">Danh mục chờ duyệt</a></li>
+							<li><a href="./index.php?url=qldm">Danh sách danh mục</a></li>
+						</ul>
+					</li>
+					<li><a href="./index.php?url=qlncc"><i class="fas fa-house-user" id="icon"></i>Quản lý nhà cung cấp</a></li>
 					<li><a href="./index.php?url="><i class="fas fa-ad" id="icon"></i>Quản lý banner</a></li>
 					<li><a href="./index.php?url="><i class="far fa-window-maximize" id="icon"></i>Quản lý bài đăng</a></li>
 					<li><a href="./index.php?url=thongkedt"><i class="far fa-chart-bar" id="icon"></i>Thống kê doanh thu</a></li>
@@ -116,6 +121,8 @@
 
 					 // Quan ly danh muc
 					 case 'qldm' : include './QLDM/DsDM.php';break;
+					 case 'duyet' : include './QLDM/duyetdm.php';break;
+					 case 'duyetdm' : include './QLDM/duyet.php';break;
 					 case 'themdm' : include './QLDM/ThemDM.php';break;
 					 case 'suadm' : include './QLDM/SuaDM.php';break;
 					 case 'xoadm' : include './QLDM/XoaDM_submit.php';break;
@@ -133,6 +140,11 @@
 					 case 'confirm' : include './QLDG/duyet_submit.php';break;
 					 case 'xoadg' : include './QLDG/xoa.php';break;
 					
+					 //Quan ly nha cung cap
+					 case 'qlncc' : include './QLNCC/dsncc.php';break;
+					 case 'ncc' : include './QLNCC/xulyncc.php';break;	 
+					 case 'suancc' : include './QLNCC/suancc.php';break;	 
+
 					 //Thong ke
 					 case 'thongke' : include './TKE/thongke.php';break;
 

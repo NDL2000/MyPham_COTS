@@ -43,4 +43,26 @@ $(document).ready(function(){
             }
         })
     });
+
+    // Xu ly ajax ton tai ten nhà cung cấp
+    $("#name-ncc").keyup(function(){
+        $.ajax({
+            type: "POST",
+            url: "../admin/QLNCC/ajaxncc.php",
+            data: {
+                "name":$("#name-ncc").val(),
+            },
+            success: function(data) {
+                $(".error").html(data);
+                if(data.length > 0) {
+                    $("#btn_suadm").attr("disabled",true);
+                    $("#btn_suadm").css({"cursor":"not-allowed","opacity":0.3});
+                }
+                else {
+                    $("#btn_suadm").attr("disabled",false);
+                    $("#btn_suadm").css({"cursor":"pointer","opacity":0.9});
+                }
+            }
+        })
+    });
 });

@@ -12,19 +12,18 @@
 </head>
 <body>
     <div class="container-qldm">
-    <h1 class="title">DANH SÁCH DANH MỤC</h1>
+    <h1 class="title">DANH SÁCH DANH MỤC CHỜ DUYỆT</h1>
     <table class="table table-hover table-qldm">
         <tr class="table-success">
             <th>STT</th>
             <th>Mã danh mục</th>
             <th>Tên danh mục</th>
-            <th>Trạng thái</th>
             <th>Xử lý</th>
         </tr>
    
     <?php
         include "../admin/connect.php";
-        $sql = "select * from danhmuc where TrangThai!='2'";
+        $sql = "select * from danhmuc where TrangThai='2'";
         $result = mysqli_query($conn,$sql);
         if(mysqli_num_rows($result)>0){
             $count = 0;        
@@ -35,38 +34,25 @@
             <td><?php echo $count ?></td>
             <td><?php echo $row["MaDM"] ?></td>
             <td><?php echo $row["TenDM"] ?></td>
-            <td><?php echo($row["TrangThai"] == 1)?  "Hiển thị": "Ẩn" ?></td>
             <td>
-                <a href="./index.php?url=suadm&id=<?php echo $row["MaDM"];?>" class="btn btn-success"><i class="fas fa-edit"></i></a>
-                <a href="./index.php?url=xoadm&id=<?php echo $row["MaDM"];?>" class="btn btn-danger" onclick="return xoa('<?php echo $row['TenDM'];?>')"><i class="fas fa-times"></i></a>
+                <a href="./index.php?url=duyetdm&id=<?php echo $row["MaDM"];?>" class="btn btn-success"><i class="far fa-check-circle"></i></a>
+                <a href="./index.php?url=xoadm&key=<?php echo $row["MaDM"];?>" class="btn btn-danger" onclick="return xoa('<?php echo $row['TenDM'];?>')"><i class="fas fa-times"></i></a>
             </td>
         </tr>        
     <?php } }  ?>
-        
-            <td colspan="5" align="center">
-                <button class="btn btn-secondary btn-themdm" type="submit" onclick="myFunction()">Thêm mới </button> 
-            </td>
     </table>
     </div>
 </body>
 </html>
 
 <script>
-    function myFunction(){
-        location.replace("./index.php?url=themdm");
-    }
-
     function xoa(name){
-        return confirm("Bạn có muốn xóa danh mục : "+ name +" ?");
+        return confirm("Bạn có muốn xóa yêu cầu danh mục : "+ name +" ?");
     }
 </script>
 
 <?php if(isset($_GET['kq'])&&$_GET['kq']==1) {?>
-        <script>swal("","Thêm thành công","success")</script>
-<?php } ?>
-
-<?php if(isset($_GET['kq'])&&$_GET['kq']==2) {?>
-        <script>swal("","Cập nhật thành công","success")</script>
+        <script>swal("","Duyệt thành công","success")</script>
 <?php } ?>
 
 <?php if(isset($_GET['kq'])&&$_GET['kq']==3) {?>
