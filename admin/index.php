@@ -154,8 +154,11 @@
 					 case 'ycdm' : include './QLDM/yeucaudm.php';break;
 					 case 'xulydm' : include './QLDM/xulydm.php';break;
 					 
-					 //Thong ke
-					 case 'thongke' : include './TKE/thongke_ncc.php';break;
+					 //Thong ke nhà cung cấp
+					 case 'thongke' : include './TKE/thongke.php';break;
+
+					 //Thong ke admin
+					 case 'thongkedt' : include './TKE_AD/thongke.php';break;
 
 					 case 'dangxuat': include './dangxuat.php';break;
 				}
