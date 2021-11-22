@@ -9,7 +9,7 @@ body {
     margin:0px;
     background-size: 50% 50%;
     width: 50%;
-    animation: left 25s ease-in-out;
+    animation: left 2s ease-in-out;
   }
   .image-login>img {
     width: 100%;
@@ -24,7 +24,7 @@ body {
     margin:0 auto;
     max-width:500px;
     width: 100%;
-    animation: right 25s ease-in-out;
+    animation: right 2s ease-in-out;
   }
   .login-header {
     color:#fff;
@@ -129,36 +129,18 @@ body {
     }
   }
   @keyframes right {
-    0% {
-      transform: translate(100%);
+    from {
+      transform: translateX(100%);
     }
-    10% {
-       transform: translate(0);
-    }
-    80% {
-       transform: translate(0);
-    }
-    90% {
-      transform: translate(100%);
-    }
-    100% {
-      transform: translate(100%);
+    to {
+      transform: translateX(0%);
     }
   }
   @keyframes left {
-    0% {
-      transform: translate(-100%);
+    from {
+      transform: translateX(-100%);
     }
-    10% {
-       transform: translate(0);
-    }
-    80% {
-      transform: translate(0);
-    }
-    90% {
-      transform: translate(-100%);
-    }
-    100% {
-      transform: translate(-100%);
+    to {
+      transform: translateX(0%);
     }
   }
