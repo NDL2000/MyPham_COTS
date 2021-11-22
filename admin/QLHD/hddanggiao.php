@@ -11,8 +11,9 @@
 </head>
 <body>
     <?php include './connect.php'; 
+    if(isset($_SESSION["MaNCC"])) $mancc = $_SESSION["MaNCC"];
     //Xu ly Pagination
-    $sql = "SELECT * FROM hoadon where TrangThai= 'Đang giao'";
+    $sql = "SELECT hd.MaHD,hd.TenDangNhap,hd.NgayHD,hd.TrangThai,cthd.MaSP FROM hoadon hd,cthoadon cthd,sanpham sp where hd.mahd=cthd.MaHD and sp.masp=cthd.MaSP and hd.TrangThai= 'Đang giao' and cthd.MaSP=sp.MaSP and sp.MaNCC='$mancc'";
     $kq = mysqli_query($conn,$sql);
     $num_rows = mysqli_num_rows($kq); //So rows trong database
     $rows = 5;  //So rows muon hien thi
@@ -20,7 +21,7 @@
       $page = ($_GET['page']-1)*$rows;  //Vi tri record 
     }
     else {$page = 1;echo "<script>window.location.href='./index.php?url=hddanggiao&page=1'</script>"; }
-          $qr = "SELECT * FROM hoadon where TrangThai = 'Đang giao' limit $page,$rows";
+          $qr = "SELECT hd.MaHD,hd.TenDangNhap,hd.NgayHD,hd.TrangThai,cthd.MaSP FROM hoadon hd,cthoadon cthd,sanpham sp where hd.mahd=cthd.MaHD and sp.masp=cthd.MaSP and hd.TrangThai= 'Đang giao' and cthd.MaSP=sp.MaSP and sp.MaNCC='$mancc' limit $page,$rows";
           $result = mysqli_query($conn, $qr);
     ?>
     <h1 class="title">Hóa đơn đang giao</h1>

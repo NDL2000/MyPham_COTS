@@ -39,9 +39,11 @@
         if($_POST["code"]!=null&&$_POST["code"]==$_SESSION["captcha"]){
         $username = $_POST["username"];
         $password = $_POST["password"];
+        
         // Login Admin
         $sql = "SELECT TenDangNhap,MatKhau,HoTen,TrangThai,MaLoai from taikhoan where TenDangNhap='$username'";
         $kq = mysqli_query($conn,$sql);
+        
         if(mysqli_num_rows($kq)>0){
             while($row = mysqli_fetch_array($kq)){
             $kq_pass = password_verify($password,$row["MatKhau"]);
@@ -50,11 +52,16 @@
                    
                     if($row["MaLoai"]=="AD"){
                         $_SESSION["admin"] = $row["HoTen"];
+                        $_SESSION["name-admin"] = $row["TenDangNhap"];
                         header("Location:../admin/index.php?ad=1");
                     }
                     else if($row["MaLoai"]=="NCC")
                     {
                         $_SESSION["admin-NCC"] = $row["HoTen"];
+                        $sql1 = "SELECT MaNCC from nhacungcap where TenDangNhap='$username'";
+                        $kq1 = mysqli_query($conn,$sql1);
+                        $row = mysqli_fetch_row($kq1);
+                        $_SESSION["MaNCC"] = $row[0];
                         header("Location:../admin/index.php?ad=2");
                     }
                     else {
@@ -63,14 +70,15 @@
                     }
                 }
                 else {
-                     echo "<script>window.location.href='./dangnhap.php?kq=-2'</script>";  
+                    header("Location:./dangnhap.php?kq=-2");  
                 }
+            }
+            else {
+                header("Location:./dangnhap.php?kq=0");
             }
         } 
         }
-        else {
-            header("Location:./dangnhap.php?kq=0");
-        }
+        
         // Login user
         
     }     
