@@ -11,6 +11,7 @@
 <?php include './connect.php'; ?>
 <!-- Code xu ly them san pham KM -->
 <?php 
+    if(isset($_SESSION["MaNCC"])) $mancc = $_SESSION["MaNCC"];
     if(isset($_POST['add'])){
         $sanpham = $_POST['sanpham'];
         $ratio = $_POST['ratio'];
@@ -58,7 +59,7 @@
     <hr>
     <label><b>Tên sản phẩm </b></label>
     <select multiple name="sanpham[]" size="5"> 
-    <?php $qr = "select MaSP,TenSP from sanpham"; 
+    <?php $qr = "select MaSP,TenSP from sanpham where MaNCC='$mancc'"; 
         $result = mysqli_query($conn, $qr);
         if(mysqli_num_rows($result)>0){
             while($row = mysqli_fetch_array($result)){
