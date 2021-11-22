@@ -155,7 +155,7 @@
 					 case 'xulydm' : include './QLDM/xulydm.php';break;
 					 
 					 //Thong ke
-					 case 'thongke' : include './TKE/thongke.php';break;
+					 case 'thongke' : include './TKE/thongke_ncc.php';break;
 
 					 case 'dangxuat': include './dangxuat.php';break;
 				}
