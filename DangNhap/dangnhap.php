@@ -17,7 +17,11 @@
 </head>
 <body>
     <?php session_start(); include '../admin/connect.php';include '../DangNhap/taocaptcha.php'?>
-<form method="post" action="../DangNhap/xulydangnhap.php">
+    
+<form method="post" action="../DangNhap/xulydangnhap.php" style="display: flex;">
+<div class="image-login">
+        <img src="https://cf.shopee.vn/file/0d07d78f3e073e41957b80f1ec19cca3">
+    </div>
 <div class="login">
   <div class="login-header">
     <h1>Đăng nhập</h1>

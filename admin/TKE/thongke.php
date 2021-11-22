@@ -9,8 +9,9 @@
 </head>
 <body>
     <?php include './connect.php';
+    if(isset($_SESSION["MaNCC"])) $mancc = $_SESSION["MaNCC"];
     //Xu ly Pagination
-    $sql = "SELECT * FROM hoadon where TrangThai='Đã giao'";
+    $sql = "SELECT * FROM hoadon where TrangThai= 'Đã giao' and MaNCC='$mancc'";
     $kq = mysqli_query($conn,$sql);
     $num_rows = mysqli_num_rows($kq); //So rows trong database
     $rows = 5;  //So rows muon hien thi
@@ -19,7 +20,7 @@
     }
     else {$page = 1;echo "<script>window.location.href='./index.php?url=thongke&page=1'</script>"; }
     
-    $qr = "SELECT * FROM hoadon where TrangThai='Đã giao' limit $page,$rows";
+    $qr = "SELECT * FROM hoadon where TrangThai= 'Đã giao' and MaNCC='$mancc' limit $page,$rows";
     $result = mysqli_query($conn, $qr);
     ?>
     <h1 class="title">THỐNG KÊ</h1>
@@ -147,6 +148,34 @@
           </div>
     </div>
 </div>
-
+<h1 class="title">SẢN PHẨM BÁN CHẠY</h1>
+<table class="table table-bordered table-hover table-1">
+  <thead class="table-success">
+    <tr>
+      <th scope="col" class="title-table" style="width: 3%">STT</th>
+      <th scope="col" class="title-table" style="width: 7%">Mã sản phẩm</th>
+      <th scope="col" class="title-table" style="width: 15%">Tên sản phẩm</th>
+      <th scope="col" class="title-table" style="width: 10%">Số lượng</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php  
+        $sql = "SELECT sp.MaSP,sp.TenSP,SUM(cthd.SoLuongMua) as SoLuong FROM hoadon hd,cthoadon cthd,sanpham sp where hd.mahd=cthd.MaHD and sp.masp=cthd.MaSP and hd.TrangThai= 'Đã giao' and cthd.MaSP=sp.MaSP and sp.MaNCC='$mancc' GROUP BY sp.MaSP,sp.TenSP 
+        ORDER BY SoLuong DESC LIMIT 0,5"; 
+        $result = mysqli_query($conn, $sql);
+        $count =0;
+        if(mysqli_num_rows($result)>0){           
+            while($row = mysqli_fetch_array($result)) { 
+              $count++;
+    ?>
+    <tr>
+      <td style="font-weight: bold"><?php echo $count?></td>
+      <td style="font-weight: bold"><?php echo $row['MaSP']?></td>
+      <td style="font-weight: bold"><?php echo $row['TenSP']?></td>
+      <td style="font-weight: bold"><?php echo $row['SoLuong']?></td>
+    </tr>
+    <?php }} ?>
+  </tbody>
+</table>
 </body>
 </html>

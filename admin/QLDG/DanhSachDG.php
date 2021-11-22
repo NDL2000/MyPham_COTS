@@ -11,7 +11,8 @@
 <body>
 <?php      
             include("connect.php");
-                $sql_select="SELECT *  FROM danhgia ";
+            if(isset($_SESSION["MaNCC"])) $mancc = $_SESSION["MaNCC"];
+                $sql_select="SELECT * FROM danhgia dg,sanpham sp WHERE dg.MaSP=sp.MaSP and sp.MaNCC='$mancc'";
                 $result= mysqli_query($conn,$sql_select);
                 ?>
 <html>
@@ -70,7 +71,9 @@
             <td><?php echo ($row["TrangThai"] == 1) ?  "Hiện" : "Ẩn" ?></td>
             <td>
                     <a href="./index.php?url=review&id=<?php echo $row['MaDG']; ?> "  class="view-comment">Xem</a>
+                    <?php if ($row["TrangThai"]== 0) {?>
                     <a  href="./index.php?url=confirm&id=<?php echo $row['MaDG']; ?>" onclick="return confirm('Bạn có muốn duyệt đánh giá này không?')" class="view-comment confirm">Duyệt</a>
+                    <?php }?>
                     <a onclick="return confirm('Bạn có muốn xóa đánh giá này không?')" href="./index.php?url=xoadg&id=<?php echo $row['MaDG']; ?>" class="view-comment delete">Xóa</a>
             </td>
         </tr>

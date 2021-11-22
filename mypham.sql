@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 21, 2021 lúc 02:52 AM
+-- Thời gian đã tạo: Th10 22, 2021 lúc 01:55 PM
 -- Phiên bản máy phục vụ: 10.4.20-MariaDB
 -- Phiên bản PHP: 8.0.8
 
@@ -67,6 +67,15 @@ CREATE TABLE `cthoadon` (
   `SoLuongMua` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Đang đổ dữ liệu cho bảng `cthoadon`
+--
+
+INSERT INTO `cthoadon` (`MaHD`, `MaSP`, `TenKH`, `GiaGoc`, `TyLeKM`, `SoLuongMua`) VALUES
+(19, 11, 'Nguyễn Đức Lý', '1', 0, 1),
+(19, 13, 'a', '1', 0, 2),
+(20, 14, 'a', '1', 0, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -80,17 +89,6 @@ CREATE TABLE `ctkhuyenmai` (
   `GhiChu` text DEFAULT NULL,
   `SoLuongKM` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Đang đổ dữ liệu cho bảng `ctkhuyenmai`
---
-
-INSERT INTO `ctkhuyenmai` (`MaKM`, `MaSP`, `TyLeKM`, `GhiChu`, `SoLuongKM`) VALUES
-(9, 8, 10, NULL, 8),
-(9, 11, 5, NULL, 9),
-(9, 14, 5, NULL, 10),
-(9, 20, 10, NULL, 10),
-(9, 22, 5, NULL, 10);
 
 -- --------------------------------------------------------
 
@@ -143,8 +141,17 @@ CREATE TABLE `hoadon` (
   `GhiChu` varchar(256) DEFAULT NULL,
   `HoTenNN` varchar(255) NOT NULL,
   `SoDienThoaiNN` varchar(20) NOT NULL,
-  `DiaChiNN` varchar(255) NOT NULL
+  `DiaChiNN` varchar(255) NOT NULL,
+  `MaNCC` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `hoadon`
+--
+
+INSERT INTO `hoadon` (`TenDangNhap`, `MaHD`, `NgayHD`, `TrangThai`, `GhiChu`, `HoTenNN`, `SoDienThoaiNN`, `DiaChiNN`, `MaNCC`) VALUES
+('b', 19, '2021-11-22', 'Đã giao', NULL, 'a', 'a', 'a', 2),
+('c', 20, '2021-11-22', 'Đã giao', NULL, '', 'a', 'a', 5);
 
 -- --------------------------------------------------------
 
@@ -165,8 +172,7 @@ CREATE TABLE `khuyenmai` (
 --
 
 INSERT INTO `khuyenmai` (`MaKM`, `TenKM`, `TuNgay`, `DenNgay`, `TrangThai`) VALUES
-(6, 'ABC', '2021-09-17', '2021-09-18', 'Hết khuyến mãi'),
-(9, 'Tết', '2021-10-17', '2021-10-18', 'Hết khuyến mãi');
+(19, 'a', '2021-11-22', '2021-11-23', 'Đang khuyến mãi');
 
 -- --------------------------------------------------------
 
@@ -208,7 +214,9 @@ CREATE TABLE `nhacungcap` (
 --
 
 INSERT INTO `nhacungcap` (`TenDangNhap`, `MaNCC`, `TenNCC`, `DiaChi`, `SDT`) VALUES
-('nguyenducly2000@gmail.com', 2, 'Lý', 'Quảng Nam', '0963700285');
+('nguyenducly2000@gmail.com', 2, 'Nguyễn Đức Lý', 'Quảng Nam', '0963700285'),
+('a', 5, 'a', 'a', 'a'),
+('nguyenvanthedtu@gmail.com', 6, 'Nguyễn Văn Thế', 'Huế', '0123456789');
 
 -- --------------------------------------------------------
 
@@ -281,7 +289,7 @@ INSERT INTO `sanpham` (`MaSP`, `MaNCC`, `TenSP`, `DonGia`, `HinhAnh`, `MaDM`, `T
 (11, 2, 'BỘ TRỊ MỤN BỌC,TRỨNG CÁ XÓA THÂM MENLY', '950000', 'product_10.png', 1, 1, 'Đầu tiên, trước khi đọc bài viết này, Mỹ Phẩm Cho Nam xin có đôi điều với các bạn. Nếu bạn nào tự nghĩ rằng da mặt của mình là đẹp nhất quả đất rồi, da mặt mình lúc nào cũng căng mịn, chẳng bao giờ có mụn và chất nhờn, hay những vết sẹo mụn, sẹo thâm không tồn tại trên mặt. Nếu vậy THÌ các bạn không cần đọc bài viết này làm gì cả nhé. Vì nó không cần thiết.', 9),
 (12, 2, 'COMBO SẠCH MỤN CÁM, ĐẦU ĐEN MENLY', '560000', 'product_6.png', 1, 1, 'Sản phẩm đầu tiên và cũng là sản phẩm không thể thiếu trong Combo này chính là Sữa Rửa Mặt MENLY. Đây là dòng sản phẩm được sản xuất với công thức độc quyền dành riêng cho làn da nam giới. Là dòng sữa rửa mặt KHÔNG BỌT đầu tiên cho nam giới tại Việt Nam với độ pH 6.0 đạt CHUẨN đảm bảo lấy sạch bụi bẩn, nhờn thừa nhưng vẫn tuyệt đối AN TOÀN cho da.\r\n\r\nSữa Rửa Mặt MENLY với các thành phần tinh túy kết hợp với nhau gồm: Tinh chất nha đam, Đất sét xanh Pháp, Tinh dầu trà xanh, Tinh dầu bạc hà và Tinh dầu vỏ bưởi…', 10),
 (13, 2, 'COMBO DƯỠNG DA HOÀN HẢO TOÀN THÂN MENLY', '1200000', 'product_11.png', 2, 1, 'COMBO DƯỠNG DA HOÀN HẢO TOÀN THÂN M.E.N.L.Y tập hợp các sản phẩm dưỡng trắng cho mặt và cơ thể cực kỳ hiệu quả, 100% THIÊN NHIÊN nên an toàn cho mọi loại da.\r\n\r\nCung cấp dưỡng chất làm trắng da an toàn ( Anphal Arburin và AHA độc quyền) giúp nuôi dưỡng từ tế bào, giúp mang lại cho nam giới làn  trắng khỏe tự nhiên và nam tính nhất.\r\n\r\nKhông bắt nắng, không bào mòn da.', 10),
-(14, 2, 'BỘ TỨ DƯỠNG DA SẠCH MỤN MENLY', '1250000', 'product_12.png', 2, 1, 'Sở hữu làn da trắng, sạch mụn không chỉ là mơ ước của riêng phái nữ. Hiểu được tâm lý này của các đấng mài râu, BỘ TỨ DƯỠNG DA SẠCH MỤN MENLY sẽ giúp anh em có được làn da như ý!\r\n\r\nSử dụng trọn bộ mỹ phẩm chăm sóc da bao gồm: Sữa rửa mặt MENY, Toner dưỡng ẩm MENLY, Serum dưỡng trắng MENLY và Kem trị mụn MENLY sẽ mang lại cho bạn những kết quả ngoài mức mong đợi. BỘ TỨ DƯỠNG TRẮNG DA SẠCH MỤN MENLY với chiết xuất từ thiên nhiên giúp làn da nam giới được nâng niu trọn vẹn. \r\n\r\nHãy nhanh tay đặt hàng để sở hữu cho mình BỘ TỨ DƯỠNG TRẮNG DA SẠCH MỤN MENLY - làn da sáng mịn trong tầm tay bạn!', 10),
+(14, 5, 'BỘ TỨ DƯỠNG DA SẠCH MỤN MENLY', '1250000', 'product_12.png', 2, 1, 'Sở hữu làn da trắng, sạch mụn không chỉ là mơ ước của riêng phái nữ. Hiểu được tâm lý này của các đấng mài râu, BỘ TỨ DƯỠNG DA SẠCH MỤN MENLY sẽ giúp anh em có được làn da như ý!\r\n\r\nSử dụng trọn bộ mỹ phẩm chăm sóc da bao gồm: Sữa rửa mặt MENY, Toner dưỡng ẩm MENLY, Serum dưỡng trắng MENLY và Kem trị mụn MENLY sẽ mang lại cho bạn những kết quả ngoài mức mong đợi. BỘ TỨ DƯỠNG TRẮNG DA SẠCH MỤN MENLY với chiết xuất từ thiên nhiên giúp làn da nam giới được nâng niu trọn vẹn. \r\n\r\nHãy nhanh tay đặt hàng để sở hữu cho mình BỘ TỨ DƯỠNG TRẮNG DA SẠCH MỤN MENLY - làn da sáng mịn trong tầm tay bạn!', 10),
 (15, 2, 'COMBO DƯỠNG TRẮNG SẠCH DA MENLY', '650000', 'product_6.png', 2, 1, 'Mỗi ngày 2 lần sử dụng Sữa rửa mặt Menly, bạn sẽ cảm nhận làn da mềm mịn, sạch nhờn đồng thời nhờ đặc tính kháng khuẩn nên giúp ngừa mụn và làm giảm mụn hiệu quả.\r\n\r\nTiếp đó, Serum trắng da Menly sẽ làm mờ vết thâm sau khi mụn xẹp, ngăn ngừa viêm da và làm sáng da đều lên mỗi ngày.\r\n\r\nHãy nhanh tay đặt hàng để sở hữu cho mình COMBO DƯỠNG TRẮNG SẠCH MỤN MENLY - làn da sáng mịn trong tầm tay bạn!', 10),
 (16, 2, 'SERUM DƯỠNG TRẮNG DA MENLY', '300000', 'product_3.png', 2, 1, 'Serum là dòng sản phẩm không còn xa lạ với chị em phụ nữ nữa. Tuy nhiên, ít người biết rằng, ngay cả nam giới cũng có thể sử dụng serum dưỡng trắng da cho nam để chăm sóc cho làn da của mình.\r\n\r\nChính vì thế mà sản phẩm Serum dưỡng trắng da MENLY dành riêng cho phái mạnh đã ra đời. Sản phẩm này không chỉ có thành phần hoạt chất tốt cho da mà còn có những công dụng vượt trội mà bạn không thể ngờ tới.\r\n\r\nSản phẩm serum này là một trong các sản phẩm đặc trưng của dòng mỹ phẩm thiên nhiên cao cấp đầu tiên cho nam tại Việt Nam, ưu việt vượt trội so với những dòng kem dưỡng trắng da cho nam giới hiện nay trên thị trường.\r\n\r\nTrong serum dưỡng trắng cho nam M.E.N.L.Y có chứa chủ yếu là Arbutin, Vitamin C-E. Đây đều là các hoạt chất giúp làm sáng da vô cùng an toàn. Không chỉ vậy, chúng còn có tác dụng làm mờ thâm nám, giúp da đều màu hơn và làm da trắng sáng một cách tự nhiên. Làn da của bạn sẽ được quan tâm và chăm sóc toàn diện, giúp các chàng trai có làn da trắng sáng khỏe mạnh, lấy lại tự tin khi giao tiếp cũng như gây ấn tượng với người đối diện.', 10),
 (17, 2, 'SỮA TẮM THẢI ĐỘC MENLY ', '400000', 'product_2.png', 2, 1, 'Sữa tắm thải độc MENLY được chiết  xuất từ:\r\n\r\n- Aloe Vera Extract: cung cấp các Vitamin và dưỡng chất cần thiết cho da, duy trì độ ẩm, giúp da luôn mịn màng, mềm mại. \r\n- Calendula Hydrosol (Hydrosol từ Hoa Cúc Xu Xi): giàu flavonoids, giúp chống oxi hoa và ngăn ngừa lão hóa da, đồng thời Calendula Hydrosol còn chứa acid oleanolic giúp làm dịu da, chống kích ứng, giảm stress và bảo vệ da dưới tác hại của môi trường \r\n- Blend Tinh dầu Trị Liệu: kích thích tuần hoàn máu, hương thơm tự nhiên giúp thư giãn, giảm căng thẳng, mệt mỏi.\r\n- Khi sử dụng sản phẩm được 3 – 4 ngày, bạn sẽ có cảm giác như sạch da hơn, có mùi trà xanh và bạc hà thơm dễ chịu. Đặc biệt khi rửa xong da ko bị căng khô.', 10),
@@ -318,8 +326,12 @@ CREATE TABLE `taikhoan` (
 --
 
 INSERT INTO `taikhoan` (`TenDangNhap`, `Email`, `MatKhau`, `MaLoai`, `TrangThai`, `HoTen`, `GioiTinh`, `SoDienThoai`, `DiaChi`) VALUES
+('a', 'a', 'a', 'NCC', 1, 'a', 1, 'a', 'a'),
 ('admin', '', '$2y$10$bsdiqHJ.g2QoWC/Gpee7Bua9/VCY5zwYLyol3Mex0GWIcHufEuTlO', 'AD', 1, 'Nguyễn Đức Lý', 1, '0963700285', 'Quảng Nam'),
-('nguyenducly2000@gmail.com', 'nguyenducly2000@gmail.com', '$2y$10$xcSEkmD6c2EJ5wgBDID5cugLHtJHHwcT3lGcWWJeaNAoGucdIUfKO', 'NCC', 0, 'Lý', 1, '0963700285', 'Quảng Nam');
+('b', 'b', 'b', 'US', 1, 'b', 1, '1', 'b'),
+('c', 'c', 'c', 'US', 1, 'c', 1, 'c', 'c'),
+('nguyenducly2000@gmail.com', 'nguyenducly2000@gmail.com', '$2y$10$GuVVCaJa.5SGl96S83okbuY3NZISkR.goG9Svbl8cQ/xv/fAaXKhS', 'NCC', 1, 'Nguyễn Đức Lý', 1, '0963700285', 'Quảng Nam'),
+('nguyenvanthedtu@gmail.com', 'nguyenvanthedtu@gmail.com', '$2y$10$FgJnweN0ZtWy0KmW8RBfqOqluI93NdXDEeav.ZkYV2TS8XxaLMjJu', 'NCC', 0, 'Nguyễn Văn Thế', 1, '0123456789', 'Huế');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -372,7 +384,8 @@ ALTER TABLE `danhmuc`
 --
 ALTER TABLE `hoadon`
   ADD PRIMARY KEY (`MaHD`),
-  ADD KEY `TenDangNhap` (`TenDangNhap`);
+  ADD KEY `TenDangNhap` (`TenDangNhap`),
+  ADD KEY `MaNCC` (`MaNCC`);
 
 --
 -- Chỉ mục cho bảng `khuyenmai`
@@ -435,31 +448,31 @@ ALTER TABLE `banner`
 -- AUTO_INCREMENT cho bảng `danhgia`
 --
 ALTER TABLE `danhgia`
-  MODIFY `MaDG` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `MaDG` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `danhmuc`
 --
 ALTER TABLE `danhmuc`
-  MODIFY `MaDM` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `MaDM` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT cho bảng `hoadon`
 --
 ALTER TABLE `hoadon`
-  MODIFY `MaHD` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `MaHD` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT cho bảng `khuyenmai`
 --
 ALTER TABLE `khuyenmai`
-  MODIFY `MaKM` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `MaKM` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT cho bảng `nhacungcap`
 --
 ALTER TABLE `nhacungcap`
-  MODIFY `MaNCC` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `MaNCC` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `nhapxuat`
@@ -508,7 +521,8 @@ ALTER TABLE `danhgia`
 -- Các ràng buộc cho bảng `hoadon`
 --
 ALTER TABLE `hoadon`
-  ADD CONSTRAINT `hoadon_ibfk_1` FOREIGN KEY (`TenDangNhap`) REFERENCES `taikhoan` (`TenDangNhap`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `hoadon_ibfk_1` FOREIGN KEY (`TenDangNhap`) REFERENCES `taikhoan` (`TenDangNhap`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `hoadon_ibfk_2` FOREIGN KEY (`MaNCC`) REFERENCES `nhacungcap` (`MaNCC`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `nhacungcap`

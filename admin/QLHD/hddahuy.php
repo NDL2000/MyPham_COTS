@@ -13,7 +13,7 @@
     <?php include './connect.php'; 
     if(isset($_SESSION["MaNCC"])) $mancc = $_SESSION["MaNCC"];
      //Xu ly Pagination
-     $sql = "SELECT hd.MaHD,hd.TenDangNhap,hd.NgayHD,hd.TrangThai,cthd.MaSP FROM hoadon hd,cthoadon cthd,sanpham sp where hd.mahd=cthd.MaHD and sp.masp=cthd.MaSP and hd.TrangThai= 'Đã hủy' and cthd.MaSP=sp.MaSP and sp.MaNCC='$mancc'";
+     $sql = "SELECT * FROM hoadon WHERE MaNCC='$mancc' AND TrangThai='Đã hủy'";
      $kq = mysqli_query($conn,$sql);
      $num_rows = mysqli_num_rows($kq); //So rows trong database
      $rows = 5;  //So rows muon hien thi
@@ -22,7 +22,7 @@
      }
      else {$page = 1;echo "<script>window.location.href='./index.php?url=hddahuy&page=1'</script>"; }
      
-          $qr = "SELECT hd.MaHD,hd.TenDangNhap,hd.NgayHD,hd.TrangThai,cthd.MaSP FROM hoadon hd,cthoadon cthd,sanpham sp where hd.mahd=cthd.MaHD and sp.masp=cthd.MaSP and hd.TrangThai= 'Đã hủy' and cthd.MaSP=sp.MaSP and sp.MaNCC='$mancc' limit $page,$rows";
+          $qr = "SELECT * FROM hoadon WHERE MaNCC='$mancc' AND TrangThai='Đã hủy' limit $page,$rows";
           $result = mysqli_query($conn, $qr);
     ?>
     <h1 class="title">Hóa đơn đã hủy</h1>

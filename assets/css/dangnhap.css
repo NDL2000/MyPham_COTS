@@ -1,8 +1,21 @@
 body {
-    background:url(https://preview.colorlib.com/theme/bootstrap/login-form-20/images/xbg.jpg.pagespeed.ic.tiVxeakBSd.webp);
+    background:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwcNDwgNBwcHBwcNBw0HCAcHBw8ICQcNFREWFhURExMYHSggGB0lGxUTITEhJSkrLi4uFx8zODMsNygtLisBCgoKDg0NDg8PFSsZFRkrLSsrKzcuOC0rKysrKysrKy0rKy0rKysrKy03KysrNy0rKysrLSstLSs3KzctKy03Lf/AABEIAKgBLAMBIgACEQEDEQH/xAAZAAEBAQEBAQAAAAAAAAAAAAABAAIDBQT/xAAqEAEBAAECBQMDBAMAAAAAAAAAAQIRIQMxQVGBEhNhUnGxBDKR8VOCkv/EABoBAQEAAwEBAAAAAAAAAAAAAAABAgMEBwb/xAAbEQEBAQEAAwEAAAAAAAAAAAAAARECITFREv/aAAwDAQACEQMRAD8A+XHLu254x1xj56vSaDGvRem/5ZRCokBiSRCWSBSQhIKCIIhQKBIUApJApIQkEQoFAoEQqJAYQkqFJIJJA8vGO2MZxkdcY3Wt1rWMdPbxv7sZVjHSRrta7Xz5/pfoy8ZOGWOU2yllegMpLtlJZ2qzsndefC3x+HMbtdrNdOsc2bZ7JCBpAgiCiFJASFEQkEERCCIMREQRCQgJCRCQQUIKIVAUEkgeUZb0tnkJ0uhuZ59M8p/tWve4v+TL+XMpiZHT3uL9eS93idc8v50cymQyFJAUCiEskCkhCQUEQRCgUCQoBISBSQhIIhQKBUBEKiQEhJUMSSDykC6XQSyQKiSBhBREQQRCRGkCCIKIUkBISISCCIhBEFEqIIhIQEwJEJBBQwEQoFiPJITpdJIQjSBQUMBRCokBiBRCWSBSQhIKCIIhQKBIUApJApIYkggYgUCoCIVEgMISI8kguh0lJCEskCkkDCCiKGAiIhINIEEQUQpICQkQkEERCCIKJUQRCQkCQhCQQUIIjyUC3ukkICQhGkCgoQUQpICkkQlkgUkISCgiCIUkgUlAKSQKSGJIIFAoFQEQpIHkkJ0OgkFAoEQmMkCkkDCCiIwEREJBpAgiCiFJASEiEggUIYgiBRGi5UerKcrVxcdy4zi/VNfmOmOUvK6pYljRCRiYQQeSknQ6CgUCQgJCEaQKChgKIVEgKSRCWSBSQhIKCIkt5b13uExxvXK7apUtckI6cPDXe8vyCxx63l+WrG2amsdYoptQsY9NXoveNo01yvDy+L5ZuOU6WfL6DF1f044cf6/+o7Sy8rrO8Yy4eF6aXvNnK48TDfG649dOXmGSpkr6mcuLhjtllJdNXGfqZ1wuvxdq+XPK225c6s5+rOPrCSbW1EICQUCgRCWSBUSQJBRFCCCISI0gQRDeFnlEd+Dhpvf3fhn9RlynmmZuOV1ttYyeWEnk4Y22Sefh9UknLkxwcNJvzu7Wecn36TulS+aMrJz/ALccsrft2Fyt3qWRlIUIVVEFEqIMEJCBy4vAl3w2vbpXy2WbWaXtXoC443njL95qs6xlOseYkm5tSSApJAlIEUhDEkgjCkRKFAokkQwXPGc746pLJtWMe5r8RvHJJbCx09TfCx1vxN6k130w69Pozykmt8Tu+a5W3WpJInMSKVUUgSSQKSGJKQGJJEf/2Q==); 
     margin:0px;
     font-family: 'Ubuntu', sans-serif;
-      background-size: 100% 110%;
+    /* background-size: 50% 50%; */
+    /* background-repeat: no-repeat; */
+  }
+  .image-login {
+    margin:0px;
+    background-size: 50% 50%;
+    width: 50%;
+    animation: left 2s ease-in-out;
+  }
+  .image-login>img {
+    width: 100%;
+    margin: 12% 6%;
+    height: 86%;
+    border-radius: 10%;
   }
   h1, h2, h3, h4, h5, h6, a {
     margin:0; padding:0;
@@ -10,19 +23,19 @@ body {
   .login {
     margin:0 auto;
     max-width:500px;
+    width: 100%;
+    animation: right 2s ease-in-out;
   }
   .login-header {
     color:#fff;
     text-align:center;
     font-size:300%;
   }
-  /* .login-header h1 {
-     text-shadow: 0px 5px 15px #000; */
 
   .login-form {
     border:.5px solid #fff;
     background:#4facff1f;
-    border-radius:10px;
+    border-radius:40px;
     box-shadow:0px 0px 10px #000;
   }
   .login-form h3 {
@@ -113,5 +126,21 @@ body {
     }
     .login-button {
       margin-bottom:10px;
+    }
+  }
+  @keyframes right {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+  }
+  @keyframes left {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0%);
     }
   }
