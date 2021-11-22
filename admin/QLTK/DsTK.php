@@ -30,7 +30,7 @@
         <?php
         include("../admin/connect.php");
     //Xu ly Pagination
-      $sql = "SELECT * FROM taikhoan where MaLoai='AD'";
+      $sql = "SELECT * FROM taikhoan where MaLoai!='NCC'";
       $kq = mysqli_query($conn,$sql);
       $num_rows = mysqli_num_rows($kq); //So rows trong database
       $rows = 5;  //So rows muon hien thi
@@ -39,7 +39,7 @@
       }
       else {$page = 1;echo "<script>window.location.href='./index.php?url=QlTK&page=1'</script>"; }
 
-        $sql = "select * from taikhoan where MaLoai='AD' limit $page,$rows";
+        $sql = "select * from taikhoan where MaLoai!='NCC' limit $page,$rows";
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) > 0) {
             $count = 0;

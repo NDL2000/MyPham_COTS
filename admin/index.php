@@ -35,7 +35,8 @@
                 </div>	
 				<ul class="active1">
 					<?php if(isset($_SESSION['admin'])) {?>
-					<li><a href="./index.php?url=QlTK"><i class="far fa-user" id="icon"></i>Quản lý tài khoản </a></li>
+			
+					<li><a href="./index.php?url=QlTK"><i class="far fa-user" id="icon"></i>Quản lý tài khoản</a></li>
 					<li><a href="#"><i class="fas fa-list-ul" id="icon"></i>Quản lý danh mục </a>
 						<ul class="submenu">
 							<li><a href="./index.php?url=duyet">Danh mục chờ duyệt</a></li>
@@ -75,8 +76,8 @@
 						</ul> -->
 					</li>
                     <li><a href="./index.php?url=qldg"><i class="far fa-comments" id="icon"></i>Quản lý đánh giá</a></li>
-                    <li><a href="./index.php?url=qldg"><i class="far fa-comments" id="icon"></i>Quản lý khách hàng</a></li>
-                    <li><a href="./index.php?url=qldg"><i class="far fa-comments" id="icon"></i>Yêu cầu danh mục</a></li>
+                    <li><a href="./index.php?url=qlkh"><i class="fas fa-user-friends" id="icon"></i>Quản lý khách hàng</a></li>
+                    <li><a href="./index.php?url=ycdm"><i class="fas fa-reply" id="icon"></i>Yêu cầu danh mục</a></li>
 					<li><a href="./index.php?url=thongke"><i class="far fa-chart-bar" id="icon"></i>Thống kê</a></li> 
 					<?php }?>
 					<li><a href="./index.php?url=dangxuat"><i class="fas fa-sign-out-alt" id="icon"></i>Đăng xuất</a></li>
@@ -127,6 +128,7 @@
 					 case 'suadm' : include './QLDM/SuaDM.php';break;
 					 case 'xoadm' : include './QLDM/XoaDM_submit.php';break;
 					 
+					 
 					 //Quan ly san pham
 					 case 'qlsanpham' : include './QLSP/qlsanpham.php';break;
 					 case 'add' : include './QLSP/add.php';break;
@@ -145,6 +147,13 @@
 					 case 'ncc' : include './QLNCC/xulyncc.php';break;	 
 					 case 'suancc' : include './QLNCC/suancc.php';break;	 
 
+					 //Quan ly nha cung cap
+					 case 'qlkh' : include './QLKH/dskh.php';break;
+					 
+					 //Yêu cầu danh mục
+					 case 'ycdm' : include './QLDM/yeucaudm.php';break;
+					 case 'xulydm' : include './QLDM/xulydm.php';break;
+					 
 					 //Thong ke
 					 case 'thongke' : include './TKE/thongke.php';break;
 

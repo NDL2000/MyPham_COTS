@@ -11,7 +11,7 @@ if(isset($_POST['filter'])){
                     case "hddahuy": $status = "Đã hủy"; break;
                   }
                 }
-                $sql1 = "select * from hoadon where NgayHD between date('$fromdate') and date('$todate') and TrangThai='$status'";
+                $sql1 = "SELECT hd.MaHD,hd.TenDangNhap,hd.NgayHD,hd.TrangThai,cthd.MaSP FROM hoadon hd,cthoadon cthd,sanpham sp where hd.mahd=cthd.MaHD and sp.masp=cthd.MaSP and hd.TrangThai= 'Chờ xét duyệt' and cthd.MaSP=sp.MaSP and sp.MaNCC='$mancc' and hd.NgayHD between date('$fromdate') and date('$todate') and hd.TrangThai='$status'";
                 $result = mysqli_query($conn,$sql1);
 }
 mysqli_close($conn);
