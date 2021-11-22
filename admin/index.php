@@ -44,7 +44,7 @@
 					</li>
 					<li><a href="./index.php?url=qlncc"><i class="fas fa-house-user" id="icon"></i>Quản lý nhà cung cấp</a></li>
 					<li><a href="./index.php?url="><i class="fas fa-ad" id="icon"></i>Quản lý banner</a></li>
-					<li><a href="./index.php?url="><i class="far fa-window-maximize" id="icon"></i>Quản lý bài đăng</a></li>
+					<li><a href="./index.php?url=DSBĐ"><i class="far fa-window-maximize" id="icon"></i>Quản lý bài đăng</a></li>
 					<li><a href="./index.php?url=thongkedt"><i class="far fa-chart-bar" id="icon"></i>Thống kê doanh thu</a></li>
 					<?php }?>
 					<!-- Nhà cung cấp -->
@@ -149,6 +149,11 @@
 					 case 'thongke' : include './TKE/thongke.php';break;
 
 					 case 'dangxuat': include './dangxuat.php';break;
+
+					 //Quan ly bai dang
+					 case 'DSBĐ' : include './QLBĐ/DSBĐ.php';break;
+					 case 'xemCTBĐ' : include './QLBĐ/xemCTBĐ.php';break;
+					 case 'themBĐ' : include './QLBĐ/themBĐ.php';break;
 				}
 			}
 			?>

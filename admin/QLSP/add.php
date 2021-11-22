@@ -35,7 +35,7 @@
     $res = mysqli_query($conn,$sql);
     if(mysqli_num_rows($res)>0) {
        while($row = mysqli_fetch_array($res)){
-         $masp = $row['MaSP'];
+        $masp = $row['MaSP'];
         $sql_input_output ="INSERT INTO nhapxuat (MaSP,GiaNhap,GiaXuat,NgayApDung, SoLuongNhap)  VALUES('$masp','$price_input','$price_output','$datetime','$input_quality')";
         $sql_QLSP= "UPDATE SANPHAM SET DonGia='$price_output',HinhAnh='$image1',MaDM='$category_id',TrangThai='$status1',MoTa='$description',SoLuongTon=SoLuongTon+'$input_quality' where MaSP='$masp'";
         $query_input_output=mysqli_query($conn,$sql_input_output);
