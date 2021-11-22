@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +15,6 @@
 <body>
     <h1 >THÊM BÀI ĐĂNG</h1>
     <form action="<?php include("themBĐ_submit.php"); ?>" method="post">
-    <?php echo $tieude .$chuyenmuc .$ngaydang .$noidung .$trangthai .$hinhanh?>
         <table>
             <tr>
                 <td>Tiêu đề :</td>
@@ -49,7 +49,7 @@
             <tr>
                 <td>Nội dung :</td>
                 <td>
-                    <input type="text" name="noidung" value="<?php echo $noidung?>" >
+                    <textarea name="noidung" id="" cols="30" rows="10" value="<?php echo $noidung?>"></textarea>
                 </td>
                 <td>
                     <div class="error"><?php echo $errors['noidung']; ?></div>
@@ -65,7 +65,7 @@
                 </td>
             </tr>
             <td colspan="2">
-                    <button type="submit" name="submit" class="">Thêm tài khoản</button>
+                    <button type="submit" name="submit" class="">Thêm bài đăng</button>
                     <a href="./index.php?url=DSBĐ" class="">Quay về</a> 
             </td>
         </table>

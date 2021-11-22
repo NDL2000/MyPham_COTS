@@ -27,7 +27,7 @@
                 </tr>
                 <tr>
                     <td>Ngày đăng : </td>
-                    <td><?php echo $row[3]?></td>
+                    <td><?php echo $row[3]; ?></td>
                 </tr>
                 <tr>
                     <td>Hình ảnh : </td>

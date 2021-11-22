@@ -24,7 +24,17 @@
         </tr>
         <?php 
         include ("../admin/connect.php");
-            $sql = "Select TieuDe, NgayDang,HinhAnh,ChuyenMuc,TrangThai from baidang";
+
+       /* $sql = "SELECT * FROM baidang";
+        $kq = mysqli_query($conn,$sql);
+        $num_rows = mysqli_num_rows($kq); //So rows trong database
+        $rows = 5;  //So rows muon hien thi
+        if(isset($_GET['page'])&&$_GET['page']>0){
+          $page = ($_GET['page']-1)*$rows;  //Vi tri record 
+        }
+        else {$page = 1;echo "<script>window.location.href='./index.php?url=DSBĐ&page=1'</script>"; }
+        */
+            $sql = "Select * from baidang";
             $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($result) > 0) {
                 $count = 0;
@@ -39,9 +49,9 @@
                     <td><?php echo $row["ChuyenMuc"] ?></td>
                     <td><?php echo ($row["TrangThai"] == 1) ? "Mở" : "Khóa" ?></td>
                     <td>
-                        <a href="./index.php?url=suaBĐ&id=<?php echo $count ?>"><i class="fas fa-edit"></i></a>
-                        <a href="./index.php?url=xemCTBĐ&id=<?php echo $count ?>"><i class="fas fa-eye"></i></a>
-                        <a onclick="return xoa('<?php echo $row['TieuDe']; ?>')"><i class="fas fa-trash-alt"></i></a>
+                        <a href="./index.php?url=suaBĐ&id=<?php echo $row["IdBai"] ?>"><i class="fas fa-edit"></i></a>
+                        <a href="./index.php?url=xemCTBĐ&id=<?php echo $row["IdBai"] ?>"><i class="fas fa-eye"></i></a>
+                        <a href="./index.php?url=xoaBĐ&id=<?php echo $row["IdBai"];?>" onclick="return xoa('<?php echo $row['TieuDe']; ?>')"><i class="fas fa-trash-alt"></i></a>
                     </td>
                 </tr>
 
@@ -60,12 +70,24 @@
 
 <script>
     function xoa(name) {
-        return confirm("Bạn có muốn xóa bài đăng : " + name + " ?");
+        return confirm("Bạn có muốn xóa bài đăng có tiêu đề: " + name + " ?");
     }
 </script>
 
 <?php if (isset($_GET['kq']) && $_GET['kq'] == 1) { ?>
     <script>
         swal("", "Thêm thành công", "success")
+    </script>
+<?php } ?>
+
+<?php if (isset($_GET['kq']) && $_GET['kq'] == 2) { ?>
+    <script>
+        swal("", "Cập nhật thành công", "success")
+    </script>
+<?php } ?>
+
+<?php if (isset($_GET['kq']) && $_GET['kq'] == 3) { ?>
+    <script>
+        swal("", "Xóa thành công", "success")
     </script>
 <?php } ?>

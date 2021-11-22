@@ -163,6 +163,8 @@
 					 case 'DSBĐ' : include './QLBĐ/DSBĐ.php';break;
 					 case 'xemCTBĐ' : include './QLBĐ/xemCTBĐ.php';break;
 					 case 'themBĐ' : include './QLBĐ/themBĐ.php';break;
+					 case 'xoaBĐ' : include './QLBĐ/xoaBĐ_submit.php';break;
+					 case 'suaBĐ' : include './QLBĐ/suaBĐ.php';break;
 				}
 			}
 			?>
