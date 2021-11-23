@@ -31,7 +31,7 @@
                 </tr>
                 <tr>
                     <td>Hình ảnh : </td>
-                    <td><img style="background-image: none;" class="image" src="./assets/images/images_product/<?php echo $row[4] ?>"></td>
+                    <td><img style="background-image: none;" class="image" src="./assets/images/images_baidang/<?php echo $row[4] ?>"></td>
                 </tr>
                 <tr>
                     <td>Nội dung : </td>

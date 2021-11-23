@@ -20,54 +20,16 @@
         $hinhanh = $_POST["hinhanh"];
         $tendangnhap=$_SESSION["name-admin"] ;
 
-
-        $flag=0;
-        $flag1=0;
-        $flag2=0;
-
-        if(empty($tieude)){
-            
-            $errors['tieude']='Bạn chưa nhập !!!';
-            $flag=1;
-        }else{
-
             $sql="Select * from baidang where TieuDe = '$tieude'";
             $old= mysqli_query($conn,$sql);
 
             if( mysqli_num_rows($old)>0){
 
                 $errors['tieude']='Tiêu đề đã tồn tại !!!';
-                $flag=1;
 
             }else{
-                $flag=0;
+                $sql1 = "insert into baidang values ('','$tieude','$chuyenmuc','$ngaydang','$hinhanh','$noidung','$trangthai','$tendangnhap') ";
+                $old1 =mysqli_query($conn,$sql1);
             }
-        }
-
-        if(empty($chuyenmuc)){
-            
-            $errors['chuyenmuc']='Bạn chưa nhập !!!';
-            $flag1=1;
-        }else{
-            $flag1=0;
-        }
-
-        if(empty($noidung)){
-            
-            $errors['noidung']='Bạn chưa nhập !!!';
-            $flag2=1;
-        }else{
-            $flag2=0;
-        }
-        
-        if($flag==0 && $flag1==0 && $flag2 ==0 ){
-            $sql1 = "insert into baidang values ('','$tieude','$chuyenmuc','$ngaydang','$hinhanh','$noidung','$trangthai','$tendangnhap') ";
-            $old1 =mysqli_query($conn,$sql1);
-            if( $old1>0){
-                header("location:./index.php?url=DSBĐ&kq=1");
-                //echo "<script>window.location.href='./index.php?url=DSBĐ&kq=1&page=1'</script>";
-            }
-        }
-
     }
 ?>

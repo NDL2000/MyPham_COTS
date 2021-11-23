@@ -7,12 +7,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limontesweetalert2/7.2.0/sweetalert2.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
+    <link  rel="stylesheet" href="./assets/css/QLBĐ/DSBĐ.css"/>
 
 </head>
 <body>
-    <div class="">
+    <div class="container-qlbđ">
     <h1 class="title">DANH SÁCH BÀI ĐĂNG</h1>
-    <table class="table table-hover table-qltk">
+    <table class="table table-hover table-qlbđ">
         <tr class="table-success">
             <th>STT</th>
             <th >Tiêu đề</th>
@@ -45,7 +46,7 @@
                     <td><?php echo $count ?></td>
                     <td><?php echo $row["TieuDe"] ?></td>
                     <td><?php echo $row["NgayDang"] ?></td>
-                    <td><img style="background-image: none;width:25%;"  src="./assets/images/images_product/<?php echo $row["HinhAnh"] ?>"></td>
+                    <td><img style="background-image: none;width:25%;"  src="./assets/images/images_baidang/<?php echo $row["HinhAnh"] ?>"></td>
                     <td><?php echo $row["ChuyenMuc"] ?></td>
                     <td><?php echo ($row["TrangThai"] == 1) ? "Mở" : "Khóa" ?></td>
                     <td>
@@ -60,7 +61,7 @@
         }  ?>
 
         <td colspan="7" align="center">
-            <a type="button" href="./index.php?url=themBĐ">Thêm mới </a>
+            <a type="button" href="./index.php?url=themBĐ" class="btn btn-secondary btn-qlbđ">Thêm mới </a>
         </td>
     </table>
     </div>
