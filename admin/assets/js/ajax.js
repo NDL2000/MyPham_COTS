@@ -76,6 +76,7 @@ $(document).ready(function(){
             },
             success: function(data) {
                 $(".error").html(data);
+               
                 if(data.length > 0) {
                     $("#btn_suadm").attr("disabled",true);
                     $("#btn_suadm").css({"cursor":"not-allowed","opacity":0.3});
@@ -83,6 +84,33 @@ $(document).ready(function(){
                 else {
                     $("#btn_suadm").attr("disabled",false);
                     $("#btn_suadm").css({"cursor":"pointer","opacity":0.9});
+                }
+            }
+        })
+    });
+     // Xu ly ajax ton tai ten san pham
+     $("#namesp").keyup(function(){
+        $.ajax({
+                type: "POST",
+                url: "../admin/QLSP/ajaxsp.php",
+                data: {
+                    "name":$("#namesp").val(),
+                },
+                success: function(data) {
+                    
+                  
+                    //$(".error").css({"transform":"translateY(-10px)","color":"red"});
+                    if(data.length > 0) {
+                    $("#error").css("display", "block");
+                    $(".name-error").css({"border":"solid 2px #b30000"});
+                    $("#btn_add").attr("disabled",true);
+                    $("#btn_add").css({"cursor":"not-allowed","opacity":0.3});
+                }
+                else {
+                    $("#error").css("display", "none");
+                    $(".name-error").css({"border":"none"});
+                    $("#btn_add").attr("disabled",false);
+                    $("#btn_add").css({"cursor":"pointer","opacity":0.9});
                 }
             }
         })

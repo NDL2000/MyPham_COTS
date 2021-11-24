@@ -2,10 +2,11 @@
 <script src="./assets/js/QLSP_js/add_QLSP.js"></script>
 <script src="./assets/js/QLSP_js/edit.js"></script>
 <?php include "./connect.php";
+  if(isset($_SESSION['MaNCC'])) $prd_supplier=$_SESSION['MaNCC'];
   $id=$_GET["id"];
   $sql_category="SELECT * FROM danhmuc  ";
   $query_category=mysqli_query($conn,$sql_category);
-  $sql_update="SELECT sp.MaSP,sp.TenSP,nx.GiaNhap,nx.GiaXuat,sp.HinhAnh,sp.MaDM,sp.TrangThai,nx.SoLuongNhap,sp.MoTa,nx.NgayApDung FROM sanpham as sp,nhapxuat as nx where sp.MaSP=nx.MaSP and nx.GiaXuat = sp.DonGia and sp.MaSP=$id and nx.MaSP=$id";
+  $sql_update="SELECT sp.MaSP,sp.MaNCC,sp.TenSP,nx.GiaNhap,nx.GiaXuat,sp.HinhAnh,sp.MaDM,sp.TrangThai,nx.SoLuongNhap,sp.MoTa,nx.NgayApDung FROM sanpham as sp,nhapxuat as nx where sp.MaSP=nx.MaSP and nx.GiaXuat = sp.DonGia and sp.MaSP=$id and nx.MaSP=$id";
   $query_update=mysqli_query($conn,$sql_update);
   $row_update=mysqli_fetch_assoc($query_update);
   if(isset($_POST['sbm'])){
@@ -22,6 +23,7 @@
 
     }
     // $price=$_POST['price'];
+
     $price_input=$_POST['price_input'];
     $price_output=$_POST['price_output'];
     $date=$_POST['date'];
@@ -31,7 +33,7 @@
     $description=$_POST['description'];
     
     $sql_input_output_update ="UPDATE nhapxuat SET GiaNhap = '$price_input', GiaXuat = '$price_output', NgayApDung = '$date', SoLuongNhap = '$input_quality' where MaSP='$id'";
-    $sql_QLSP_update = "UPDATE sanpham SET TenSP = '$prd_name', DonGia= '$price_output', HinhAnh = '$image1', MaDM= '$category_id', TrangThai= '$status1',MoTa='$description',SoLuongTon='$input_quality' where MaSP='$id'";
+    $sql_QLSP_update = "UPDATE sanpham SET MaNCC='$prd_supplier', TenSP = '$prd_name', DonGia= '$price_output', HinhAnh = '$image1', MaDM= '$category_id', TrangThai= '$status1',MoTa='$description',SoLuongTon='$input_quality' where MaSP='$id'";
     $query_input_output_update=mysqli_query($conn,$sql_input_output_update);
     $query_QLSP_update=mysqli_query($conn,$sql_QLSP_update);
     echo "<script>window.location.href='./index.php?url=qlsanpham&page=1&kq1=$query_QLSP_update'</script>";
@@ -46,6 +48,10 @@
        <div class="form-group">
          <label for="">Mã sản phẩm</label>
          <input type="text" name="prd_id"class="form-control"   disabled   require value="<?php echo $row_update['MaSP']  ?>" >
+        </div>
+       <div class="form-group">
+         <label for="">Mã nhà cung cấp</label>
+         <input type="text" name="prd_supplier"class="form-control"   disabled   require value="<?php echo $row_update['MaNCC']  ?>" >
         </div>
        <div class="form-group">
          <label for="">Tên sản phẩm</label>
