@@ -72,9 +72,7 @@
          <label for="">Tên sản phẩm</label>
          <input type="text" name="prd_name"class="form-control name-error" id='namesp' >
         </div>
-        <div id="error" style="display: none;
-    transform: translate(104%, -46px);
-    font-size: 20px;" >
+        <div id="error" class="name-product" >
         <i class="fas fa-ban" style="color:red;"></i>
         
         </div>

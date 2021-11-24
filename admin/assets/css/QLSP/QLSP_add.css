@@ -124,3 +124,8 @@ label{
 .image-file{  
     transform: translateX(-37px);
 }
+.name-product{
+    display: none;
+    transform: translate(104%, -46px);
+    font-size: 20px;
+}
