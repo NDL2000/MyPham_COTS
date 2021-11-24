@@ -53,7 +53,7 @@ $(document).ready(function(){
             },
             success: function(data) {
                 $(".error").html(data);
-                //$(".error").css({"transform":"translateY(-10px)","color":"red"});
+                $(".error").css({"transform":"translateY(-2px)","color":"red"});
                 if(data.length > 0) {
                     $("#btn_BĐ").attr("disabled",true);
                     $("#btn_BĐ").css({"cursor":"not-allowed","opacity":0.3});

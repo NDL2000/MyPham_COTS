@@ -18,7 +18,7 @@
             <tr>
                 <td>Tiêu đề(*) :</td>
                 <td>
-                    <input type="text" name="tieude" value="<?php echo $tieude?>" class="form-control " required>
+                    <input type="text" name="tieude" id="name" value="<?php echo $tieude?>" class="form-control " required>
                 </td>
                 <td>
                     <div class="error"></div>
