@@ -15,7 +15,9 @@
     <title>Document</title>
 </head>
 <body>
-    <?php include "./connect.php";?>
+    <?php include "./connect.php";
+  if(isset($_SESSION['MaNCC'])) $prd_supplier=$_SESSION['MaNCC'];
+  ?>
     <h1 class="title"></h1>
     <script>
         var title=document.querySelector('.title').innerText="Quản Lý Sản Phẩm"
@@ -51,7 +53,7 @@
       }
       else {$page = 1;echo "<script>window.location.href='./index.php?url=qlsanpham&page=1'</script>"; }
       
-      $sql="SELECT sp.MaSP,sp.TenSP,sp.DonGia,sp.HinhAnh,sp.MaDM,sp.TrangThai,nx.SoLuongNhap FROM sanpham as sp,nhapxuat as nx where sp.MaSP=nx.MaSP and nx.GiaXuat = sp.DonGia limit $page,$rows";
+      $sql="SELECT sp.MaSP,sp.MaNCC,sp.TenSP,sp.DonGia,sp.HinhAnh,sp.MaDM,sp.TrangThai,nx.SoLuongNhap FROM sanpham as sp,nhapxuat as nx,nhacungcap as ncc where sp.MaSP=nx.MaSP and nx.GiaXuat = sp.DonGia and sp.MaNCC=ncc.MaNCC limit $page,$rows";
       
       $result = mysqli_query($conn,$sql);
       // $sql_price="SELECT * FROM  nhapxuat INNER JOIN sanpham on nhapxuat.GiaXuat=sanpham.DonGia";

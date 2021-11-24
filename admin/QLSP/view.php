@@ -13,13 +13,15 @@
 <body>
 <?php include './connect.php'; 
       $id=$_GET["id"];
+  if(isset($_SESSION['MaNCC'])) $prd_supplier=$_SESSION['MaNCC'];
+
 ?>
 
     <h1 class="title">Chi tiết sản phẩm</h1>
   <table class="table" style="text-align:center;">
   <tbody>
       <?php
-      $sql="SELECT sp.MaSP,sp.TenSP,nx.GiaXuat,sp.HinhAnh,sp.MaDM,sp.TrangThai,nx.SoLuongNhap,sp.MoTa FROM sanpham as sp,nhapxuat as nx where sp.MaSP=$id and nx.MaSP=$id ";
+      $sql="SELECT sp.MaSP,sp.TenSP,nx.GiaXuat,sp.HinhAnh,sp.MaDM,sp.MaNCC,sp.TrangThai,nx.SoLuongNhap,sp.MoTa FROM sanpham as sp,nhapxuat as nx where sp.MaSP=$id and nx.MaSP=$id ";
       
       $result = mysqli_query($conn,$sql);
      
@@ -38,10 +40,13 @@
         <td class="title-cthd">Đơn giá</td><td class="content-cthd"><?php echo number_format($row['GiaXuat'],0,",",".")." VNĐ"; ?></td>
         </tr>
         <tr>
-        <td class="title-cthd">Hình ảnh</td><td class="content-cthd"><img  class="image" src="./assets/images/QLSP_image/<?php echo $row['HinhAnh'] ?>"></td>
+        <td class="title-cthd">Hình ảnh</td><td class="content-cthd"><img  class="image" src="./assets/images/images_product/<?php echo $row['HinhAnh'] ?>"></td>
         </tr>
         <tr>
         <td class="title-cthd">Mã danh mục</td><td class="content-cthd"><?php echo $row['MaDM']; ?></td>
+        </tr>
+        <tr>
+        <td class="title-cthd">Mã nhà cung cấp</td><td class="content-cthd"><?php echo $row['MaNCC']; ?></td>
         </tr>
         <tr>
         <td class="title-cthd">Trạng Thái</td><td class="content-cthd"><?php if($row['TrangThai']==1) echo "Đang hiển thị";
