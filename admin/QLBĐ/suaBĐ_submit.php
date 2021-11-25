@@ -35,16 +35,6 @@
         $ngaydang = $_POST["ngaydang"];
         $hinhanh = $_POST["hinhanh"];
         $tendangnhap=$_SESSION["name-admin"];
-
-
-        $flag=0;
-        $flag1=0;
-        $flag2=0;
-
-       
-
-          
-
    
                 $sql1 = "update baidang set TieuDe='$tieude',ChuyenMuc='$chuyenmuc',NgayDang='$ngaydang',HinhAnh='$hinhanh'
                 ,NoiDung='$noidung',TrangThai='$trangthai',TenDangNhap='$tendangnhap' where IdBai = '$id'";

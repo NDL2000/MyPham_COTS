@@ -61,7 +61,7 @@
                 </td>
             </tr>
             <td colspan="2">
-                    <button type="submit" name="submit" id ="btn_BĐ" class="btn btn-primary btn-suaBĐ" onclick="return Edit('<?php echo $tieude ;?>') ">Cập nhật bài đăng</button>
+                    <button type="submit" name="submit" id ="btn_BĐ" class="btn btn-primary btn-suaBĐ" onclick="return Edit('<?php echo $tieude ;?>') ">Cập nhật</button>
                     <button type="button" onclick="goBack()" class="btn btn-primary btn-suaBĐ">Quay về</button>
             </td>
         </table>

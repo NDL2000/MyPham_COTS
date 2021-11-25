@@ -7,19 +7,17 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limontesweetalert2/7.2.0/sweetalert2.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
-    <link  rel="stylesheet" href="./assets/css/QLBĐ/DSBĐ.css"/>
+    <link  rel="stylesheet" href="./assets/css/QLBanner/DSBanner.css"/>
 </head>
 <body>
-    <div class="container-qlbđ">
-    <h1 class="title">DANH SÁCH BÀI ĐĂNG</h1>
-    <table class="table table-hover table-qlbđ">
+    <div class="container-qlbanner">
+    <h1 class="title">DANH SÁCH BANNER</h1>
+    <table class="table table-hover table-qlbanner">
         <tr class="table-success">
             <th>STT</th>
             <th >Tiêu đề</th>
-            <th >Ngày Đăng</th>
+            <th >Link</th>
             <th >Hình Ảnh</th>
-            <th >Chuyên Mục</th>
-            <th >Trạng thái</th>
             <th >Xử lý</th>
         </tr>
         <?php 
@@ -34,7 +32,7 @@
         }
         else {$page = 1;echo "<script>window.location.href='./index.php?url=DSBĐ&page=1'</script>"; }
         */
-            $sql = "Select * from baidang";
+            $sql = "Select * from banner";
             $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($result) > 0) {
                 $count = 0;
@@ -44,21 +42,18 @@
             <tr>
                     <td><?php echo $count ?></td>
                     <td><?php echo $row["TieuDe"] ?></td>
-                    <td><?php echo $row["NgayDang"] ?></td>
-                    <td><img style="background-image: none;width:25%;"  src="./assets/images/images_baidang/<?php echo $row["HinhAnh"] ?>"></td>
-                    <td><?php echo $row["ChuyenMuc"] ?></td>
-                    <td><?php echo ($row["TrangThai"] == 1) ? "Mở" : "Khóa" ?></td>
+                    <td><?php echo $row["Link"] ?></td>
+                    <td><img style="background-image: none;width:25%;"  src="./assets/images/images_banner/<?php echo $row["HinhAnh"] ?>"></td>
                     <td>
-                        <a href="./index.php?url=suaBĐ&id=<?php echo $row["IdBai"] ?>"><i class="fas fa-edit"></i></a>
-                        <a href="./index.php?url=xemCTBĐ&id=<?php echo $row["IdBai"] ?>" ><i class="fas fa-eye"></i></a>
-                        <a href="./index.php?url=xoaBĐ&id=<?php echo $row["IdBai"];?>" onclick="return xoa('<?php echo $row['TieuDe']; ?>')"><i class="fas fa-trash-alt"></i></a>
+                        <a href="./index.php?url=suaBanner&id=<?php echo $row["IdBanner"] ?>"><i class="fas fa-edit"></i></a>
+                        <a href="./index.php?url=xoaBanner&id=<?php echo $row["IdBanner"];?>" onclick="return xoa('<?php echo $row['TieuDe']; ?>')"><i class="fas fa-trash-alt"></i></a>
                     </td>
                 </tr>
         <?php }
         }  ?>
 
-        <td colspan="7" align="center">
-            <a type="button" href="./index.php?url=themBĐ" class="btn btn-secondary btn-qlbđ">Thêm mới </a>
+        <td colspan="5" align="center">
+            <a type="button" href="./index.php?url=themBanner" class="btn btn-secondary btn-qlbanner">Thêm mới </a>
         </td>
     </table>
     </div>    
@@ -67,7 +62,7 @@
 
 <script>
     function xoa(name) {
-        return confirm("Bạn có muốn xóa bài đăng có tiêu đề: " + name + " ?");
+        return confirm("Bạn có muốn xóa Banner có tiêu đề: " + name + " ?");
     }
 </script>
 
