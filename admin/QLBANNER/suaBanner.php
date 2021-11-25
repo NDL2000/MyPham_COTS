@@ -13,7 +13,7 @@
 </head>
 <body>
     <h1 class="title">CẬP NHẬT BANNER</h1>
-    <form action="<?php include("suaBanner_submit.php"); ?>" method="post" class="form_suaBanner">
+    <form action="<?php include("suaBanner_submit.php"); ?>" method="post" class="form_suaBanner" enctype="multipart/form-data">
         <table>
             <tr>
                 <td>Tiêu đề(*) :</td>
@@ -37,7 +37,7 @@
                 </td>
             </tr>
             <td colspan="2">
-                    <button type="submit" name="submit" id="btn_Banner" class="btn btn-primary btn-suaBanner" onclick="return sua('<?php echo $tieude;?>')">CẬP NHẬT</button>
+                    <button type="submit" name="submit" id="btn_Banner" class="btn btn-primary btn-suaBanner" onclick="return sua('<?php echo $tieude;?>')">Cập nhật</button>
                     <button type="button" onclick="goBack()" class="btn btn-primary btn-suaBanner">Quay về</button>
             </td>
         </table>

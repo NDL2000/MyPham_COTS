@@ -13,7 +13,7 @@
 </head>
 <body>
     <h1 class="title">THÊM BANNER</h1>
-    <form action="<?php include("themBanner_submit.php"); ?>" method="post" class="form_themBanner">
+    <form action="<?php include("themBanner_submit.php"); ?>" method="post" class="form_themBanner" enctype="multipart/form-data">
         <table>
             <tr>
                 <td>Tiêu đề(*) :</td>
@@ -25,9 +25,9 @@
                 </td> 
             </tr>
             <tr>
-                <td>Link(*) :</td>
+                <td>Link:</td>
                 <td>
-                    <input type="text" name="link" value="<?php echo $link?>" class="form-control " required>
+                    <input type="text" name="link" value="<?php echo $link?>" class="form-control ">
                 </td>               
             </tr>
             <tr>
