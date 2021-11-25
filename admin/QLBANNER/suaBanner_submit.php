@@ -20,11 +20,12 @@
     if(isset($_POST["submit"])){
         $tieude = $_POST["tieude"];
         $link = $_POST["link"];
-        $hinhanh = $_POST["hinhanh"];
         $tendangnhap=$_SESSION["name-admin"] ;
-
-        $sql1 = "update banner set TieuDe='$tieude',Link='$link',HinhAnh='$hinhanh',TenDangNhap='$tendangnhap' where IdBanner = '$id'";
+        $image_tmp=$_FILES['hinhanh']['tmp_name'];
+        $image1=$_FILES['hinhanh']['name'];
+        $sql1 = "update banner set TieuDe='$tieude',Link='$link',HinhAnh='$image1',TenDangNhap='$tendangnhap' where IdBanner = '$id'";
         $old1 =mysqli_query($conn,$sql1);
+        move_uploaded_file($image_tmp,'./assets/images/images_banner/'.$image1);
         if( $old1>0){
         header("location:./index.php?url=DSBanner&kq=2");
     //echo "<script>window.location.href='./index.php?url=DSBĐ&kq=1&page=1'</script>";

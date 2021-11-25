@@ -14,7 +14,7 @@
 </head>
 <body>
     <h1 class="title">CẬP NHẬT BÀI ĐĂNG</h1>
-    <form action="<?php include("suaBĐ_submit.php"); ?>" method="post" class="form_suaBĐ">
+    <form action="<?php include("suaBĐ_submit.php"); ?>" method="post" class="form_suaBĐ" enctype="multipart/form-data">
         <table >
             <tr>
                 <td>Tiêu đề :</td>

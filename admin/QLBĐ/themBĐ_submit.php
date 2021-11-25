@@ -16,13 +16,12 @@
         $chuyenmuc = $_POST["chuyenmuc"];
         $noidung = $_POST["noidung"];
         $trangthai = $_POST["trangthai"];
-        $ngaydang = $_POST["ngaydang"];
-        $hinhanh = $_POST["hinhanh"];
+        $ngaydang = date("Y-m-d");
         $tendangnhap=$_SESSION["name-admin"] ;
-
-           
-                $sql1 = "insert into baidang values ('','$tieude','$chuyenmuc','$ngaydang','$hinhanh','$noidung','$trangthai','$tendangnhap') ";
+        $image_tmp=$_FILES['hinhanh']['tmp_name'];
+        $image1=$_FILES['hinhanh']['name'];
+                $sql1 = "insert into baidang values ('','$tieude','$chuyenmuc','$ngaydang','$image1','$noidung','$trangthai','$tendangnhap') ";
                 $old1 =mysqli_query($conn,$sql1);
-            
+                move_uploaded_file($image_tmp,'./assets/images/images_baidang/'.$image1);
     }
 ?>

@@ -13,7 +13,7 @@
 </head>
 <body>
     <h1 class="title">THÊM BÀI ĐĂNG</h1>
-    <form action="<?php include("themBĐ_submit.php"); ?>" method="post" class="form_themBĐ">
+    <form action="<?php include("themBĐ_submit.php"); ?>" method="post" class="form_themBĐ" enctype="multipart/form-data">
         <table>
             <tr>
                 <td>Tiêu đề(*) :</td>
@@ -30,12 +30,7 @@
                     <input type="text" name="chuyenmuc" value="<?php echo $chuyenmuc?>" class="form-control " required>
                 </td>               
             </tr>
-            <tr>
-                <td>Ngày đăng :</td>
-                <td>
-                    <input type="date" name="ngaydang" value="<?php echo $ngaydang?>" class="form-control" required>
-                </td>
-            </tr>
+           
             <tr>
                 <td>Hình ảnh :</td>
                 <td>

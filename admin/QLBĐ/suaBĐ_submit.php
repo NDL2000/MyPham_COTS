@@ -33,12 +33,13 @@
         $noidung = $_POST["noidung"];
         $trangthai = $_POST["trangthai"];
         $ngaydang = $_POST["ngaydang"];
-        $hinhanh = $_POST["hinhanh"];
         $tendangnhap=$_SESSION["name-admin"];
-   
-                $sql1 = "update baidang set TieuDe='$tieude',ChuyenMuc='$chuyenmuc',NgayDang='$ngaydang',HinhAnh='$hinhanh'
+        $image_tmp=$_FILES['hinhanh']['tmp_name'];
+        $image1=$_FILES['hinhanh']['name'];
+                $sql1 = "update baidang set TieuDe='$tieude',ChuyenMuc='$chuyenmuc',NgayDang='$ngaydang',HinhAnh='$image1'
                 ,NoiDung='$noidung',TrangThai='$trangthai',TenDangNhap='$tendangnhap' where IdBai = '$id'";
                 $old1 =mysqli_query($conn,$sql1);
+                move_uploaded_file($image_tmp,'./assets/images/images_baidang/'.$image1);
                 if( $old1>0){
                 header("location:./index.php?url=DSBĐ&kq=2");
             //echo "<script>window.location.href='./index.php?url=DSBĐ&kq=1&page=1'</script>";
