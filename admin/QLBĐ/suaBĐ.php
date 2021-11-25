@@ -10,11 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
     <title>Document</title>
     <link  rel="stylesheet" href="./assets/css/QLBĐ/suaBĐ.css"/>
-    <style>
-        .error{
-            color: red;
-        }
-    </style>
+
 </head>
 <body>
     <h1 class="title">CẬP NHẬT BÀI ĐĂNG</h1>
@@ -23,10 +19,10 @@
             <tr>
                 <td>Tiêu đề :</td>
                 <td>
-                    <input type="text" name="tieude" value="<?php echo $tieude?>" class="form-control" required>
+                    <input type="text" name="tieude" id="name" value="<?php echo $tieude?>" class="form-control" required>
                 </td>
                 <td>
-                    <div class="error"><?php echo $errors['tieude']; ?></div>
+                    <div class="error"></div>
                 </td>
             </tr>
             <tr>
@@ -34,9 +30,7 @@
                 <td>
                     <input type="text" name="chuyenmuc" value="<?php echo $chuyenmuc?>" class="form-control" required>
                 </td>
-                <td>
-                    <div class="error"><?php echo $errors['chuyenmuc']; ?></div>
-                </td>
+               
             </tr>
             <tr>
                 <td>Ngày đăng :</td>
@@ -51,13 +45,11 @@
                 </td>
             </tr>
             <tr>
-                <td>Nội dung :</td>
+                <td>Nội dung(*) :</td>
                 <td>
                 <textarea name="noidung" cols="30" rows="10" value="<?php echo $noidung?>" class="form-control" required><?php echo $noidung?></textarea>
                 </td>
-                <td>
-                    <div class="error"><?php echo $errors['noidung']; ?></div>
-                </td>
+               
             </tr>
             <tr>
                 <td>Trạng thái :</td>
@@ -69,7 +61,7 @@
                 </td>
             </tr>
             <td colspan="2">
-                    <button type="submit" name="submit" class="btn btn-primary btn-suaBĐ" onclick="return Edit('<?php echo $tieude ;?>') ">Cập nhật bài đăng</button>
+                    <button type="submit" name="submit" id ="btn_BĐ" class="btn btn-primary btn-suaBĐ" onclick="return Edit('<?php echo $tieude ;?>') ">Cập nhật bài đăng</button>
                     <button type="button" onclick="goBack()" class="btn btn-primary btn-suaBĐ">Quay về</button>
             </td>
         </table>
@@ -77,6 +69,10 @@
     
 </body>
 </html>
+<?php if(isset($old1)&&$old1>0){
+               echo "<script>window.location.href='./index.php?url=DSBĐ&kq=2'</script>";
+                
+            }   ?>
 <script>
     function Edit(name){
         return confirm("Bạn có muốn cập nhật bài đăng có tiêu đề: " + name + " ?");
@@ -85,3 +81,5 @@
       window.location.href="./index.php?url=DSBĐ"
 }
 </script>
+
+<script src="./assets/js/ajax.js"></script>
