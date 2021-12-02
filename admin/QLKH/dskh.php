@@ -17,7 +17,7 @@
 </head>
 <body>
     <?php include "./connect.php";
-  if(isset($_SESSION['MaNCC'])) $prd_supplier=$_SESSION['MaNCC'];
+  if(isset($_SESSION['MaNCC'])) $mancc=$_SESSION['MaNCC'];
   ?>
     <h1 class="title"></h1>
     <script>
@@ -34,18 +34,13 @@
       <th scope="col" class="title-table" style="width: 3%">Giới tính</th>
       <th scope="col" class="title-table" style="width: 3%">Số điện thoại</th>
       <th scope="col" class="title-table" style="width: 2%">Địa chỉ</th>
-      <th scope="col" class="title-table" style="width: 2%">Trạng thái</th>
-      <th scope="col" class="title-table" style="width: 2%">Mã Loại</th>
-
-      <div>
-          <th scope="col" class="title-table" style="width: 4%">Chức năng</th>
-      </div>
+      
     </tr>
   </thead>
   <tbody>
       <?php
       //Xu ly Pagination
-      $sql = "SELECT * FROM taikhoan";
+      $sql = "SELECT DISTINCT tk.Email,tk.HoTen,tk.GioiTinh,tk.SoDienThoai,tk.DiaChi FROM taikhoan tk, hoadon hd where tk.TenDangNhap=hd.TenDangNhap and hd.MaNCC='$mancc'";
       $kq = mysqli_query($conn,$sql);
       $num_rows = mysqli_num_rows($kq); //So rows trong database
       $rows = 5;  //So rows muon hien thi
@@ -54,8 +49,7 @@
       }
       else {$page = 1;echo "<script>window.location.href='./index.php?url=dskh&page=1'</script>"; }
       
-      $sql="SELECT  DISTINCT taikhoan.TenDangNhap,taikhoan.MatKhau,taikhoan.Email ,taikhoan.SoDienThoai,taikhoan.TrangThai,taikhoan.HoTen,
-      taikhoan.DiaChi ,taikhoan.MaLoai, taikhoan.GioiTinh FROM taikhoan where MaLoai='NCC' limit $page,$rows";
+      $sql="SELECT DISTINCT tk.Email,tk.HoTen,tk.GioiTinh,tk.SoDienThoai,tk.DiaChi FROM taikhoan tk, hoadon hd where tk.TenDangNhap=hd.TenDangNhap and hd.MaNCC='$mancc' limit $page,$rows";
       
       $result = mysqli_query($conn,$sql);
       if(mysqli_num_rows($result)>0){
@@ -73,15 +67,8 @@
         else echo "Nữ"?></td>
       <td style="word-wrap:break-word"><?php echo $row['SoDienThoai'] ?></td>
       <td style="word-wrap:break-word"><?php echo $row['DiaChi'] ?></td>
-      <td><?php if($row['TrangThai']==1) echo "Đang hiển thị";
-        else echo "Chưa hiển thị"?></td>
-      <td style="word-wrap:break-word"><?php echo $row['MaLoai'] ?></td>
       <div>
-      <td>
-             
-              <a onclick="return Delete_KH ('<?php echo $row['HoTen']; ?>')"  type="button" class="btn btn-danger btn"href=""> <i class="fas fa-trash-alt" id='icon'></i></button>
-              <!--  -->
-            </td>
+     
         </div>
     </tr>
     <?php }}?>
