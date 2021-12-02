@@ -44,7 +44,7 @@
 						</ul>
 					</li>
 					<li><a href="./index.php?url=qlncc"><i class="fas fa-house-user" id="icon"></i>Quản lý nhà cung cấp</a></li>
-					<li><a href="./index.php?url=DSBanner"><i class="fas fa-ad" id="icon"></i>Quản lý banner</a></li>
+					<li><a href="./index.php?url="><i class="fas fa-ad" id="icon"></i>Quản lý banner</a></li>
 					<li><a href="./index.php?url=DSBĐ"><i class="far fa-window-maximize" id="icon"></i>Quản lý bài đăng</a></li>
 					<li><a href="./index.php?url=thongkedt"><i class="far fa-chart-bar" id="icon"></i>Thống kê doanh thu</a></li>
 					<?php }?>
@@ -135,7 +135,8 @@
 					 case 'view' : include './QLSP/view.php';break;
 					 case 'edit' : include './QLSP/edit.php';break;
 					 case 'delete' : include './QLSP/delete.php';break;
-					
+					//Quan ly khach hang
+					 case 'dskh' : include './QLKH/dskh.php';break;
 					 //Quan ly danh gia
 					 case 'qldg' : include './QLDG/DanhSachDG.php';break;
 					 case 'review' : include './QLDG/chon.php';break;
@@ -164,17 +165,10 @@
 
 					 //Quan ly bai dang
 					 case 'DSBĐ' : include './QLBĐ/DSBĐ.php';break;
-					case 'xemCTBĐ' : include './QLBĐ/xemCTBĐ.php';break;
+					 case 'xemCTBĐ' : include './QLBĐ/xemCTBĐ.php';break;
 					 case 'themBĐ' : include './QLBĐ/themBĐ.php';break;
 					 case 'xoaBĐ' : include './QLBĐ/xoaBĐ_submit.php';break;
 					 case 'suaBĐ' : include './QLBĐ/suaBĐ.php';break;
-
-					 //Quan ly banner
-					 case 'DSBanner' : include './QLBANNER/DSBanner.php';break;
-					 case 'themBanner' : include './QLBANNER/themBanner.php';break;
-					 case 'xoaBanner' : include './QLBANNER/xoaBanner_submit.php';break;
-					 case 'suaBanner' : include './QLBANNER/suaBanner.php';break;
-					 
 				}
 			}
 			?>

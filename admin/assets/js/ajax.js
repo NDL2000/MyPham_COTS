@@ -43,50 +43,6 @@ $(document).ready(function(){
             }
         })
     });
-    // Xu ly ajax ton tai ten bai đăng
-    $("#name").keyup(function(){
-        $.ajax({
-            type: "POST",
-            url: "../admin/QLBĐ/ajaxBĐ.php",
-            data: {
-                "name":$("#name").val(),
-            },
-            success: function(data) {
-                $(".error").html(data);
-                $(".error").css({"transform":"translateY(-2px)","color":"red"});
-                if(data.length > 0) {
-                    $("#btn_BĐ").attr("disabled",true);
-                    $("#btn_BĐ").css({"cursor":"not-allowed","opacity":0.3});
-                }
-                else {
-                    $("#btn_BĐ").attr("disabled",false);
-                    $("#btn_BĐ").css({"cursor":"pointer","opacity":0.9});
-                }
-            }
-        })
-    });
-     // Xu ly ajax ton tai ten banner
-     $("#name").keyup(function(){
-        $.ajax({
-            type: "POST",
-            url: "../admin/QLBANNER/ajaxBanner.php",
-            data: {
-                "name":$("#name").val(),
-            },
-            success: function(data) {
-                $(".error").html(data);
-                $(".error").css({"transform":"translateY(-2px)","color":"red"});
-                if(data.length > 0) {
-                    $("#btn_Banner").attr("disabled",true);
-                    $("#btn_Banner").css({"cursor":"not-allowed","opacity":0.3});
-                }
-                else {
-                    $("#btn_Banner").attr("disabled",false);
-                    $("#btn_Banner").css({"cursor":"pointer","opacity":0.9});
-                }
-            }
-        })
-    });
 
     // Xu ly ajax ton tai ten nhà cung cấp
     $("#name-ncc").keyup(function(){

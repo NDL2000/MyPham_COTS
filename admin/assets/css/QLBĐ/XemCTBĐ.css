@@ -1,40 +1,9 @@
-.container-xemCTBĐ {
-    text-align: center;
-    margin: 20px 150px;
-    font-size: 40px;
-    line-height: 50px;
-}
-.title {
-    margin-left: 180px;
-    font-weight: bold;
-    color: green;
-    text-align: center;
-    font-size: 30px;
+.CTBĐ{
+    margin-left: 45%;
 }
 
 .image{
     width:50px;
     min-height:100%
 }
-tr>td {
-    color: green;
-    font-weight: bold;
-    width: 160px;
-    font-size: 20px;
-}
-.form_xemCTBĐ {
-    margin-left: 45%;
-}
-table {
-    line-height: 2;
-}
 
-.btn-xemCTBĐ {
-    color: #fff !important;
-    background-color: #5cb85c !important; 
-    border-color: #4cae4c !important;
-    width: 50%;
-    font-size: 15px !important;
-    margin-left: -43px;
-    margin-top: 20px !important;
-}

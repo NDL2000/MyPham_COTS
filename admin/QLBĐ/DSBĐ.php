@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limontesweetalert2/7.2.0/sweetalert2.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
     <link  rel="stylesheet" href="./assets/css/QLBĐ/DSBĐ.css"/>
+
 </head>
 <body>
     <div class="container-qlbđ">
@@ -50,10 +51,12 @@
                     <td><?php echo ($row["TrangThai"] == 1) ? "Mở" : "Khóa" ?></td>
                     <td>
                         <a href="./index.php?url=suaBĐ&id=<?php echo $row["IdBai"] ?>"><i class="fas fa-edit"></i></a>
-                        <a href="./index.php?url=xemCTBĐ&id=<?php echo $row["IdBai"] ?>" ><i class="fas fa-eye"></i></a>
+                        <a href="./index.php?url=xemCTBĐ&id=<?php echo $row["IdBai"] ?>"><i class="fas fa-eye"></i></a>
                         <a href="./index.php?url=xoaBĐ&id=<?php echo $row["IdBai"];?>" onclick="return xoa('<?php echo $row['TieuDe']; ?>')"><i class="fas fa-trash-alt"></i></a>
                     </td>
                 </tr>
+
+
         <?php }
         }  ?>
 
@@ -61,7 +64,8 @@
             <a type="button" href="./index.php?url=themBĐ" class="btn btn-secondary btn-qlbđ">Thêm mới </a>
         </td>
     </table>
-    </div>    
+    </div>
+    
 </body>
 </html>
 
