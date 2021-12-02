@@ -37,7 +37,7 @@
                 </td>
             </tr>
             <td colspan="2">
-                    <button type="submit" name="submit" id="btn_Banner" class="btn btn-primary btn-themBanner">Thêm bài đăng</button>
+                    <button type="submit" name="submit" id="btn_Banner" class="btn btn-primary btn-themBanner">Thêm banner</button>
                     <button type="button" onclick="goBack()" class="btn btn-primary btn-themBanner">Quay về</button>
             </td>
         </table>

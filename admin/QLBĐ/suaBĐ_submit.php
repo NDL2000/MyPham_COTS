@@ -32,7 +32,7 @@
         $chuyenmuc = $_POST["chuyenmuc"];
         $noidung = $_POST["noidung"];
         $trangthai = $_POST["trangthai"];
-        $ngaydang = $_POST["ngaydang"];
+        $ngaydang = date("Y-m-d");
         $tendangnhap=$_SESSION["name-admin"];
         $image_tmp=$_FILES['hinhanh']['tmp_name'];
         $image1=$_FILES['hinhanh']['name'];

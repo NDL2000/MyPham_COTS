@@ -33,12 +33,6 @@
                
             </tr>
             <tr>
-                <td>Ngày đăng :</td>
-                <td>
-                    <input type="date" name="ngaydang" value="<?php echo $ngaydang?>" class="form-control" required>
-                </td>
-            </tr>
-            <tr>
                 <td>Hình ảnh :</td>
                 <td>
                     <input type="file" name="hinhanh" value="<?php echo $hinhanh?>" class="form-control" required>
