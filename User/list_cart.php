@@ -34,11 +34,8 @@
         echo "<td><input type='number' min='1' max='".$row['SoLuongTon']."' id='quantity' name='soluong[".$list['id']."]' value='".$list['sl']."'></td>";}
         echo "<td>".$list['tylekm']." &percnt;"."</td>";
         $thanhtien = $list['price'] * $list['sl'] - ($list['price'] * $list['tylekm'] / 100);
-        // $tongtien = $tongtien + $thanhtien;
         $thanhtien = number_format($thanhtien, '0', ',', '.') . "&#8363;"; 
-        
         echo "<td>".$thanhtien."</td>";       
-         
         echo "<td><input type='submit' id='".$list['id']."' value='Xóa' class='delete'></input></td>";
         echo "</tr>";
         }
@@ -71,15 +68,24 @@
 			<td data-title='Tổng' class='subtotal'><strong><span class='amount'>$tt</span></strong> </td>
 		</tr>	
 	</tbody></table>";
-    if(isset($_SESSION["user"])){
-	echo "<div class='wc-proceed-to-checkout'>		
+    if (isset($_SESSION['thanhtien']) && $_SESSION['thanhtien'] != 0) {
+        if (isset($_SESSION["user"])) {
+            echo "<div class='wc-proceed-to-checkout'>		
     <a class='button-continue-shopping button primary is-outline' href='./thanhtoan.php' style='width: 100% !important;'>
     Tiến hành thanh toán	</a>
-	</div>";}else{
-        echo "<div class='wc-proceed-to-checkout'>		
+    </div>";
+        } else {
+            echo "<div class='wc-proceed-to-checkout'>		
     <a class='button-continue-shopping button primary is-outline' href='../DangNhap/dangnhap.php' style='width: 100% !important;'>
     Vui lòng đăng nhập để thanh toán	</a>
-	</div>";
+    </div>";
+        }
+       
+    } else {
+        echo "<div class='wc-proceed-to-checkout'>		
+    <a class='button-continue-shopping button primary is-outline' style='width: 100% !important;'>
+    Vui lòng chọn sản phẩm	</a>
+    </div>";
     }
     echo "</div>
         </div>";
@@ -93,7 +99,7 @@
                     <div class="woocommerce"><div class="text-center pt pb">
         <div class="woocommerce-notices-wrapper"></div><p class="cart-empty woocommerce-info">Chưa có sản phẩm nào trong giỏ hàng.</p>		
         <p class="return-to-shop">
-                <a class="button primary wc-backward" href="./header.php?url=sanpham">
+                <a class="button primary wc-backward" href="./header.php?url=sanpham&page=1">
                     Quay trở lại cửa hàng			</a>
             </p>
         </div></div>
@@ -102,6 +108,7 @@
         </div><!-- .row -->
     </div>';
     }
+    
     include './footer.php';
 ?>
 <script>

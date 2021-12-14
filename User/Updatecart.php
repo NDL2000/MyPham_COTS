@@ -22,6 +22,7 @@
     } 
     $_SESSION['tongtien'] = $tongtien;
     $_SESSION['thanhtien'] = $thanhtien;
+    $_SESSION['product'] = $product;
     echo "<script>window.history.back('./list_cart.php');</script>";
 
 ?>

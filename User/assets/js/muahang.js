@@ -91,5 +91,31 @@ $(document).ready(function(){
             $("#add_cart").css({"cursor":"pointer","opacity":1});
         }
     });
-    
+    // Xu ly dia chi
+    $(document).ready(function () {
+      $(".provinces").click(function () {
+        $.ajax({
+          type: "POST",
+          url: "districts.php",
+          data: {
+            id: $(".provinces").val(),
+          },
+          success: function (data) {
+            $(".district").html(data);
+          },
+        });
+      });
+      $(".district").click(function () {
+        $.ajax({
+          type: "POST",
+          url: "wards.php",
+          data: {
+            id: $(".district").val(),
+          },
+          success: function (data) {
+            $(".wards").html(data);
+          },
+        });
+      });
+    });
 });
