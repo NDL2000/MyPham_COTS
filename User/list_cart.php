@@ -10,8 +10,8 @@
         echo "<tr align='center'><h2 align='center' id='title'> THÔNG TIN GIỎ HÀNG</h2> </tr>";
         echo "<div style='display:flex'><div style='width: 60%;border-right: 1px solid;'><table class='table_cart'>"; 
         echo "<tr id='title_table'>";
-        echo "<td>Mã SP</td>";
-        echo "<td>Tên sản phẩm</td>";
+        echo "<td>Mã NCC</td>";
+        echo "<td>Sản phẩm</td>";
         echo "<td>Đơn giá</td>";
         echo "<td>Số lượng</td>";
         echo "<td>Tỷ lệ KM</td>";
@@ -19,7 +19,7 @@
         echo "</tr>";
         foreach ($_SESSION['cart'] as $list) {         
         echo "<tr>";
-        echo "<td>".$list['id']."</td>";
+        echo "<td>".$list['mancc']."</td>";
         echo "<td>".$list['name']."</td>";        
         $gia=number_format($list['price'],'0',',','.')."&#8363;";
         echo "<td>".$gia."</td>"; 
@@ -29,14 +29,14 @@
             $row = mysqli_fetch_array($result);
             if($row['SoLuongTon']>0){      
         echo "<td><input type='number' min='1' max='".$row['SoLuongTon']."' id='quantity' name='soluong[".$list['id']."]' value='".$list['sl']."'></td>";}
-        echo "<td>".$list['tylekm']." &percnt;"."</td>";     
-        $thanhtien=$list['price']*$list['sl']-($list['price']*$list['tylekm']/100);
-        $tongtien=$tongtien+$thanhtien;
-        $thanhtien=number_format($thanhtien,'0',',','.')."&#8363;";       
+        echo "<td>".$list['tylekm']." &percnt;"."</td>";
+        $thanhtien = $list['price'] * $list['sl'] - ($list['price'] * $list['tylekm'] / 100);
+        $tongtien = $tongtien + $thanhtien;
+        $thanhtien = number_format($thanhtien, '0', ',', '.') . "&#8363;";   
         echo "<td>".$thanhtien."</td>";
         echo "<td><input type='submit' id='".$list['id']."' value='Xóa' class='delete'></input></td>";
         echo "</tr>";
-        } 
+        }
          $tt=number_format($tongtien,'0',',','.')."&#8363;";
         echo "</table><div class='button_cart'>
             <a class='button-continue-shopping button primary is-outline' href='./header.php?url=sanpham'>

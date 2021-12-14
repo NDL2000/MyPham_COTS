@@ -159,7 +159,8 @@
     </tr>
   </thead>
   <tbody>
-    <?php  
+    <?php
+        include './connect.php';
         $sql = "SELECT sp.MaSP,sp.TenSP,SUM(cthd.SoLuongMua) as SoLuong FROM hoadon hd,cthoadon cthd,sanpham sp where hd.mahd=cthd.MaHD and sp.masp=cthd.MaSP and hd.TrangThai= 'Đã giao' and cthd.MaSP=sp.MaSP and sp.MaNCC='$mancc' GROUP BY sp.MaSP,sp.TenSP 
         ORDER BY SoLuong DESC LIMIT 0,5"; 
         $result = mysqli_query($conn, $sql);
