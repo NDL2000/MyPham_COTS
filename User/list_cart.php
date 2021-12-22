@@ -19,7 +19,11 @@
         echo "<td>Tỷ lệ KM</td>";
         echo "<td>Thành tiền</td>";
         echo "</tr>";
-        foreach ($_SESSION['cart'] as $list) {         
+        // Sort mancc
+        $keys = array_column($_SESSION['cart'], 'mancc');
+        array_multisort($keys, SORT_ASC, $_SESSION['cart']);
+        //-----------------
+        foreach ($_SESSION['cart'] as $list) {   
         echo "<tr>";
         echo "<td><input type='checkbox' name='product[]' value='".$list['id']."'</input></td>";
         echo "<td>".$list['mancc']."</td>";

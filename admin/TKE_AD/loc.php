@@ -1,11 +1,11 @@
 <?php
- include("connect.php");
+    include("connect.php");
 if(isset($_POST['filter'])){
                 $fromdate = trim($_POST['fromdate']);
                 $todate = trim($_POST['todate']);
-                $sql1 = "SELECT * FROM nhacungcap ncc,hoadon hd where ncc.MaNCC=hd.MaNCC and hd.TrangThai= 'Đã giao' and hd.NgayHD between date('$fromdate') and date('$todate') limit $page,$rows";
+                $sql1 = "SELECT DISTINCT(hoadon.MaNCC),nhacungcap.TenNCC FROM hoadon JOIN nhacungcap ON hoadon.MaNCC=nhacungcap.MaNCC where TrangThai= 'Đã giao' and NgayHD between date('$fromdate') and date('$todate') limit $page,$rows";
                 $result = mysqli_query($conn,$sql1);
-                
+                $_SESSION['rate'] = trim($_POST['rate']);
 }
 mysqli_close($conn);
 ?>

@@ -49,6 +49,7 @@
 					<li><a href="./index.php?url=qlncc"><i class="fas fa-house-user" id="icon"></i>Quản lý nhà cung cấp</a></li>
 					<li><a href="./index.php?url=DSBanner"><i class="fas fa-ad" id="icon"></i>Quản lý banner</a></li>
 					<li><a href="./index.php?url=DSBĐ"><i class="far fa-window-maximize" id="icon"></i>Quản lý bài đăng</a></li>
+					<li><a href="./index.php?url=qlthue"><i class="fas fa-percentage" id="icon"></i></i>Quản lý thuế</a></li>
 					<li><a href="./index.php?url=thongkedt"><i class="far fa-chart-bar" id="icon"></i>Thống kê doanh thu</a></li>
 				<?php } ?>
 				<!-- Nhà cung cấp -->
@@ -183,8 +184,19 @@
 					case 'xoadm':
 						include './QLDM/XoaDM_submit.php';
 						break;
-
-
+						// Quan ly thue
+					case 'qlthue':
+						include './QLTHUE/dsthue.php';
+						break;
+					case 'themthue':
+						include './QLTHUE/ThemThue.php';
+						break;
+					case 'xoathue':
+						include './QLTHUE/XoaThue_submit.php';
+						break;
+					case 'suathue':
+						include './QLTHUE/SuaThue.php';
+						break;
 						//Quan ly san pham
 					case 'qlsanpham':
 						include './QLSP/qlsanpham.php';

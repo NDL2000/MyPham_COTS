@@ -30,5 +30,10 @@
             }
         }
     
-
+        $qr = "select * from thue where DenNgay<CURRENT_DATE";
+        $kq = mysqli_query($conn, $qr);
+        if(mysqli_num_rows($kq)>0){
+            $qr1 = "update sanpham set TyLeThue=0";
+            mysqli_query($conn, $qr1);
+        }
 ?>

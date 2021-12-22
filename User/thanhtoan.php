@@ -48,11 +48,13 @@ include "../admin/connect.php";
                         <th>SỐ LƯỢNG</th>
                         <th>ĐƠN GIÁ</th>
                         <th>TỶ LỆ KM</th>
+                        <th>TỶ LỆ THUẾ</th>
                         <th>TẠM TÍNH</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php $tongtien = 0;
+                    $thue = 0;
                     foreach ($_SESSION['product'] as $list) {  ?>
                         <tr>
                             <td><?php echo $list['mancc'] ?></td>
@@ -60,9 +62,11 @@ include "../admin/connect.php";
                             <td><?php echo $list['sl'] ?></td>
                             <td><?php echo number_format($list['price'], '0', ',', '.') . "&#8363;" ?></td>
                             <td><?php echo $list['tylekm'] . " &percnt;" ?></td>
+                            <td><?php echo $list['tylethue'] . " &percnt;" ?></td>
                             <?php $thanhtien = $list['price'] * $list['sl'] - ($list['price'] * $list['tylekm'] / 100);
                             $ship = 45000;
                             $tongtien = $tongtien + $thanhtien;
+                            $thue = $tongtien * $list['tylethue'] / 100;
                             $thanhtien = number_format($thanhtien, '0', ',', '.') . "&#8363;";  ?>
                             <td class="order_tt" style="text-align:right"><?php echo $thanhtien ?></td>
                         </tr>
@@ -75,26 +79,38 @@ include "../admin/connect.php";
                         <td></td>
                         <td></td>
                         <td></td>
+                        <td></td>
                         <td class="order_tt" style="text-align:right"><?php if ($tongtien > 500000) {
                                                                             $ship = 0;
                                                                             echo number_format($ship, '0', ',', '.') . "&#8363;";
                                                                         } else echo number_format($ship, '0', ',', '.') . "&#8363;"; ?></td>
                     </tr>
                     <tr>
-                        <td class="order_tt">Tạm tính</td>
+                        <td class="order_tt">Tổng tiền thuế</td>
                         <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td class="order_total"><?php echo number_format($tongtien + $ship, '0', ',', '.') . "&#8363;"; ?></td>
+                        <td></td>
+                        <td class="order_tt" style="text-align:right"><?php echo number_format($thue, '0', ',', '.') . "&#8363;"; ?></td>
                     </tr>
                     <tr>
-                        <td class="order_tt">Tổng</td>
+                        <td class="order_tt">Thành tiền</td>
                         <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td class="order_total"><?php echo number_format($tongtien + $ship, '0', ',', '.') . "&#8363;"; ?></td>
+                        <td></td>
+                        <td class="order_total"><?php echo number_format($tongtien + $ship + $thue, '0', ',', '.') . "&#8363;"; ?></td>
+                    </tr>
+                    <tr>
+                        <td class="order_tt">Tổng tiền</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="order_total"><?php echo number_format($tongtien + $ship + $thue, '0', ',', '.') . "&#8363;"; ?></td>
                     </tr>
                 </tfoot>
             </table>
@@ -127,9 +143,6 @@ if (isset($_POST['order'])) {
         $arr_ncc[] = $list['mancc'];
     }
     $num_ncc = count(array_unique($arr_ncc));
-    print_r($arr_ncc);
-    echo $num_ncc;
-    echo $DiaChi;
     for ($i = 0; $i < $num_ncc; $i++) {
         $mancc = $arr_ncc[$i];
         $qr = "insert into hoadon(TenDangNhap,NgayHD,TrangThai,GhiChu,HoTenNN,SoDienThoaiNN,DiaChiNN,MaNCC) values('$tendangnhap','$NgayHD','Chờ xét duyệt','$GhiChu','$TenKH','$SoDienThoai','$DiaChi','$mancc')";

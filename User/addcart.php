@@ -17,7 +17,7 @@
                       if($row["MaSP"]==$row_sp["MaSP"]) {
                         $_SESSION['cart'][$gid]=array(
                           "id"=>$gid,"name"=>$row_sp['TenSP'],"sl"=>(int) $_SESSION['cart'][$gid]['sl']+$_POST["quantity"],"price"=> 
-                           $row_sp['DonGia'],"tylekm"=>(int) $_SESSION['cart'][$gid]['tylekm'], "mancc" => $row_sp['MaNCC']
+                           $row_sp['DonGia'],"tylekm"=>(int) $_SESSION['cart'][$gid]['tylekm'], "mancc" => $row_sp['MaNCC'], "tylethue" => $row_sp['TyLeThue']
                           );
                       }
                     }
@@ -25,7 +25,7 @@
                   else {
                     $_SESSION['cart'][$gid]=array(
                       "id"=>$gid,"name"=>$row_sp['TenSP'],"sl"=>(int) $_SESSION['cart'][$gid]['sl'] +$_POST["quantity"],"price"=> 
-                       $row_sp['DonGia'],"tylekm"=>0, "mancc" => $row_sp['MaNCC']
+                       $row_sp['DonGia'],"tylekm"=>0, "mancc" => $row_sp['MaNCC'], "tylethue" => $row_sp['TyLeThue']
                       );
                   }
                  echo 'Đã thêm sản phẩm vào giỏ';
@@ -35,7 +35,7 @@
                {
                   $_SESSION['cart'][$gid]=array(
                   "id"=>$gid,"name"=>$row_sp['TenSP'],"sl"=>$_POST["quantity"],"price"=> 
-                   $row_sp['DonGia'],"tylekm"=>0, "mancc" => $row_sp['MaNCC']
+                   $row_sp['DonGia'],"tylekm"=>0, "mancc" => $row_sp['MaNCC'], "tylethue" => $row_sp['TyLeThue']
                 );
                 $qr = "SELECT sp.MaSP,ct.TyLeKM FROM sanpham as sp,ctkhuyenmai as ct,khuyenmai as km WHERE sp.MaSP=ct.MaSP and ct.MaKM=km.MaKM and km.TrangThai='Đang khuyến mãi'";
                   $row_km = mysqli_query($conn,$qr);
@@ -44,7 +44,7 @@
                       if($row["MaSP"]==$row_sp["MaSP"]) {
                         $_SESSION['cart'][$gid]=array(
                           "id"=>$gid,"name"=>$row_sp['TenSP'],"sl"=>$_POST["quantity"],"price"=> 
-                           $row_sp['DonGia'],"tylekm"=>(int) $_SESSION['cart'][$gid]['tylekm'] +$row["TyLeKM"], "mancc" => $row_sp['MaNCC']
+                           $row_sp['DonGia'],"tylekm"=>(int) $_SESSION['cart'][$gid]['tylekm'] +$row["TyLeKM"], "mancc" => $row_sp['MaNCC'], "tylethue" => $row_sp['TyLeThue']
                           );
                       }
                     }
@@ -58,7 +58,7 @@
               {
                 $_SESSION['cart'][$gid]=array(
                   "id"=>$gid,"name"=>$row_sp['TenSP'],"sl"=>$_POST["quantity"],"price"=> 
-                   $row_sp['DonGia'],"tylekm"=>0, "mancc" => $row_sp['MaNCC']
+                   $row_sp['DonGia'],"tylekm"=>0, "mancc" => $row_sp['MaNCC'], "tylethue" => $row_sp['TyLeThue']
                 );
                 $qr = "SELECT sp.MaSP,ct.TyLeKM FROM sanpham as sp,ctkhuyenmai as ct,khuyenmai as km WHERE sp.MaSP=ct.MaSP and ct.MaKM=km.MaKM and km.TrangThai='Đang khuyến mãi'";
                 $row_km = mysqli_query($conn,$qr);
@@ -67,7 +67,7 @@
                     if($row["MaSP"]==$row_sp["MaSP"]) {
                       $_SESSION['cart'][$gid]=array(
                         "id"=>$gid,"name"=>$row_sp['TenSP'],"sl"=>$_POST["quantity"],"price"=> 
-                         $row_sp['DonGia'],"tylekm"=>(int) $_SESSION['cart'][$gid]['tylekm'] +$row["TyLeKM"], "mancc" => $row_sp['MaNCC']
+                         $row_sp['DonGia'],"tylekm"=>(int) $_SESSION['cart'][$gid]['tylekm'] +$row["TyLeKM"], "mancc" => $row_sp['MaNCC'], "tylethue" => $row_sp['TyLeThue']
                         );
                     }
                   }

@@ -22,7 +22,7 @@
     } 
     $_SESSION['tongtien'] = $tongtien;
     $_SESSION['thanhtien'] = $thanhtien;
-    $_SESSION['product'] = $product;
+    $_SESSION['product'] = $product;    // Lưu session hỗ trợ trang thanh toán
     echo "<script>window.history.back('./list_cart.php');</script>";
 
 ?>

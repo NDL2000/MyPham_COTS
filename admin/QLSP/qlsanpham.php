@@ -36,6 +36,7 @@
       <th scope="col" class="title-table" style="width: 2%">Mã danh mục</th>
       <th scope="col" class="title-table" style="width: 2%">Trạng thái</th>
       <th scope="col" class="title-table" style="width: 2%">Số Lượng</th>
+      <th scope="col" class="title-table" style="width: 2%">Tỷ lệ thuế</th>
       <div>
           <th scope="col" class="title-table" style="width: 4%">Chức năng</th>
       </div>
@@ -53,7 +54,7 @@
       }
       else {$page = 1;echo "<script>window.location.href='./index.php?url=qlsanpham&page=1'</script>"; }
       
-      $sql="SELECT sp.MaSP,sp.MaNCC,sp.TenSP,sp.DonGia,sp.HinhAnh,sp.MaDM,sp.TrangThai,nx.SoLuongNhap FROM sanpham as sp,nhapxuat as nx,nhacungcap as ncc where sp.MaSP=nx.MaSP and nx.GiaXuat = sp.DonGia and sp.MaNCC=ncc.MaNCC limit $page,$rows";
+      $sql="SELECT sp.MaSP,sp.MaNCC,sp.TenSP,sp.DonGia,sp.HinhAnh,sp.MaDM,sp.TrangThai,nx.SoLuongNhap,sp.TyLeThue FROM sanpham as sp,nhapxuat as nx,nhacungcap as ncc where sp.MaSP=nx.MaSP and nx.GiaXuat = sp.DonGia and sp.MaNCC=ncc.MaNCC limit $page,$rows";
       
       $result = mysqli_query($conn,$sql);
       // $sql_price="SELECT * FROM  nhapxuat INNER JOIN sanpham on nhapxuat.GiaXuat=sanpham.DonGia";
@@ -77,6 +78,7 @@
       <td><?php if($row['TrangThai']==1) echo "Đang hiển thị";
         else echo "Chưa hiển thị"?></td>
       <td><?php echo $row["SoLuongNhap"] ?></td>
+      <td><?php echo $row["TyLeThue"]." %"?></td>
       <div>
       <td>
               <a type="button" class="btn-button2" href="./index.php?url=view&id=<?php echo $row['MaSP']; ?>"> <i class="far fa-eye" id='icon'></i></button>

@@ -34,20 +34,20 @@
         <?php }}?>
     <!-- TT TAIKHOAN -->
     <?php 
-        $qr = "SELECT TenDangNhap FROM hoadon where MaHD='".$_GET['id']."'";
+        $qr = "SELECT * FROM hoadon where MaHD='".$_GET['id']."'";
         $result = mysqli_query($conn, $qr);
         if(mysqli_num_rows($result)>0){
-            while($row = mysqli_fetch_array($result))
-        $qr1 = "SELECT * FROM taikhoan where TenDangNhap='".$row['TenDangNhap']."'";}
-        $result1 = mysqli_query($conn, $qr1);
-        if(mysqli_num_rows($result1)>0){
-            while($row1 = mysqli_fetch_array($result1)){
+            while($row = mysqli_fetch_array($result)){
+        //$qr1 = "SELECT * FROM hoadon where TenDangNhap='".$row['TenDangNhap']."'";}
+        //$result1 = mysqli_query($conn, $qr1);
+        //if(mysqli_num_rows($result1)>0){
+            //while($row1 = mysqli_fetch_array($result1)){
     ?>
         <tr>
-            <td class="title-cthd">Khách hàng</td><td class="content-cthd"><?php echo $row1['HoTen']; ?></td>
+            <td class="title-cthd">Khách hàng</td><td class="content-cthd"><?php echo $row['HoTenNN']; ?></td>
         </tr>
         <tr>
-            <td class="title-cthd">Địa chỉ</td><td class="content-cthd"><?php echo $row1['DiaChi']; ?></td>
+            <td class="title-cthd">Địa chỉ</td><td class="content-cthd"><?php echo $row['DiaChiNN']; ?></td>
         </tr>
     <?php }}?>
     <!-- San pham trong hoa don -->

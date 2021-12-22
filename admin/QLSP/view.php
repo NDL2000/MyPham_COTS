@@ -21,7 +21,7 @@
   <table class="table" style="text-align:center;">
   <tbody>
       <?php
-      $sql="SELECT sp.MaSP,sp.TenSP,nx.GiaXuat,sp.HinhAnh,sp.MaDM,sp.MaNCC,sp.TrangThai,nx.SoLuongNhap,sp.MoTa FROM sanpham as sp,nhapxuat as nx where sp.MaSP=$id and nx.MaSP=$id ";
+      $sql="SELECT sp.MaSP,sp.TenSP,nx.GiaXuat,sp.HinhAnh,sp.MaDM,sp.MaNCC,sp.TrangThai,nx.SoLuongNhap,sp.MoTa,sp.TyLeThue FROM sanpham as sp,nhapxuat as nx where sp.MaSP=$id and nx.MaSP=$id ";
       
       $result = mysqli_query($conn,$sql);
      
@@ -57,6 +57,9 @@
         </tr>
         <tr>
         <td class="title-cthd">Mô tả</td><td class="content-cthd"><textarea readonly><?php echo $row['MoTa']; ?></textarea></td>
+        </tr>
+        <tr>
+        <td class="title-cthd">Tỷ lệ thuế</td><td class="content-cthd"><textarea readonly><?php echo $row['TyLeThue']; ?></textarea></td>
         </tr>
     <?php }}?>
   </tbody>
