@@ -8,15 +8,14 @@ include "../admin/connect.php";
     <div class="order_group">
         <div class="order_info">
             <h3>THÔNG TIN NGƯỜI NHẬN</h3>
-
             <label>Họ Tên</label>
             <input type="text" name="name" required>
             <label>Địa chỉ</label>
             <select name="provinces" class="provinces" required="">
                 <option value="">Tỉnh / Thành phố</option>
                 <?php
-                $sql = "SELECT * from tinhthanhpho";
-                $result = mysqli_query($conn1, $sql);
+                $sql = "SELECT * from tinh_thanhpho";
+                $result = mysqli_query($conn, $sql);
                 if ($result->num_rows > 0) {
                     while ($rows = $result->fetch_array()) {
                 ?>
@@ -129,7 +128,7 @@ if (isset($_POST['order'])) {
     $matp = $_POST['provinces'];
     $maqh = $_POST['district'];
     $xaid = $_POST['wards'];
-    $sql = "select tinhthanhpho.name as tentp,quanhuyen.name as quanhuyen,xaphuongthitran.name as xa from tinhthanhpho,quanhuyen,xaphuongthitran
+    $sql = "select tinh_thanhpho.name as tentp,quan_huyen.name as quanhuyen,xaphuong_thitran.name as xa from tinh_thanhpho,quan_huyen,xaphuong_thitran
             WHERE tinhthanhpho.matp=quanhuyen.matp and quanhuyen.maqh=xaphuongthitran.maqh and tinhthanhpho.matp='$matp'
             and quanhuyen.maqh='$maqh' and xaphuongthitran.xaid='$xaid'";
     $result = mysqli_query($conn1, $sql);

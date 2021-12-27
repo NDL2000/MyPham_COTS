@@ -19,11 +19,8 @@
         echo "<td>Tỷ lệ KM</td>";
         echo "<td>Thành tiền</td>";
         echo "</tr>";
-        // Sort mancc
-        $keys = array_column($_SESSION['cart'], 'mancc');
-        array_multisort($keys, SORT_ASC, $_SESSION['cart']);
         //-----------------
-        foreach ($_SESSION['cart'] as $list) {   
+        foreach ($_SESSION['cart'] as $list) { 
         echo "<tr>";
         echo "<td><input type='checkbox' name='product[]' value='".$list['id']."'</input></td>";
         echo "<td>".$list['mancc']."</td>";
@@ -48,7 +45,7 @@
             $tt = number_format($tongtien, '0', ',', '.') . "&#8363;";
         }  
         echo "</table><div class='button_cart'>
-            <a class='button-continue-shopping button primary is-outline' href='./header.php?url=sanpham'>
+            <a class='button-continue-shopping button primary is-outline' href='./header.php?url=sanpham&page=1'>
 		←&nbsp;Tiếp tục xem sản phẩm	</a>
             <p align='left'><input type='submit' name='btnUpdate'  id='update_cart' value='Cập nhật'></p> 
             </div>

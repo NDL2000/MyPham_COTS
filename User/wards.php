@@ -5,8 +5,8 @@
     if (isset($_POST['id'])) {
         $id = $_POST['id'];
     }
-    $sql = "SELECT * from xaphuongthitran where maqh='$id'";
-    $result = mysqli_query($conn1, $sql);
+    $sql = "SELECT * from xaphuong_thitran where maqh='$id'";
+    $result = mysqli_query($conn, $sql);
     if ($result->num_rows > 0) {
         while ($rows = $result->fetch_array()) {
             echo "<option value='". $rows['xaid']. "'>".$rows['name']."</option>";

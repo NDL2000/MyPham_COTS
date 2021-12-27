@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $_SESSION['cart']; 
+    print_r($_SESSION['cart']); 
     $product = array();  
     if(isset($_POST['btnUpdate'])) {
         foreach ($_POST['soluong'] as $key => $val) {

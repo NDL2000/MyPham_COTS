@@ -74,7 +74,8 @@
                 }
                 echo 'Đã thêm sản phẩm vào giỏ';
                 }
-              
+      // $keys = array_column($_SESSION['cart'], 'mancc');
+      // array_multisort($keys, SORT_ASC, $_SESSION['cart']);  
        }
      else
          {
