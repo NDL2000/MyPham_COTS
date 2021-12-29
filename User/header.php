@@ -732,10 +732,10 @@
                     <div class="col large-3 hide-for-medium ">
                         <div id="shop-sidebar" class="sidebar-inner col-inner">
                             <aside id="search-3" class="widget widget_search">
-                                <form method="get" class="searchform" action="" role="search">
+                                <!-- <form method="get" class="searchform" action="#" role="search"> -->
                                     <div class="flex-row relative">
                                         <div class="flex-col flex-grow">
-                                            <input type="search" id="search_product" class="search-field mb-0" name="s" value="" id="s" placeholder="Tìm kiếm"/>
+                                            <input type="search" id="search_product" class="search-field mb-0" placeholder="Tìm kiếm"/>
                                         </div>
                                         <!-- .flex-col -->
                                        
@@ -743,7 +743,7 @@
                                     </div>
                                     <!-- .flex-row -->
                                     <div class="live-search-results text-left z-top"></div>
-                                </form>
+                                <!-- </form> -->
                             </aside>
                             <aside id="nav_menu-3" class="widget widget_nav_menu">
                                 <span class="widget-title shop-sidebar">Danh mục sản phẩm</span>
