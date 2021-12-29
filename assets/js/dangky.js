@@ -20,4 +20,17 @@ $(document).ready(function() {
             }
         })
     });
+
+    $("#psw-repeat").keyup(function() {
+        if($("#psw").val() != $(this).val()) {
+            $("#error-psw").html('Mật khẩu không trùng khớp');
+            $(".registerbtn").attr("disabled", true);
+            $(".registerbtn").css({ cursor: "not-allowed", opacity: 0.3 });
+        }
+        else {
+            $("#error-psw").html("");
+            $(".registerbtn").attr("disabled", false);
+            $(".registerbtn").css({ cursor: "pointer", opacity: 0.9 });
+        }
+    });
 });

@@ -38,6 +38,7 @@
         
             
     <button class="btn btn-secondary btn-themdm" type="submit" onclick="myFunction()" style="transform: translateY(215px);width:20%">Yêu cầu thêm mới </button> 
+   
             
     </table>
     </div>
@@ -48,7 +49,6 @@
     function myFunction(){
         location.replace("./index.php?url=xulydm");
     }
-
 </script>
 
 <?php if(isset($_GET['kq'])&&$_GET['kq']==1) {?>

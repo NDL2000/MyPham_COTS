@@ -18,6 +18,7 @@
         $result = mysqli_query($conn,$qr);
         if(mysqli_num_rows($result)>0) echo "Tài khoản đã tồn tại";
     }
+    
     // -----------------------------------------
     if(isset($_POST['register'])){
         $username = $_POST['email'];

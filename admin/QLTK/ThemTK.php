@@ -27,7 +27,7 @@
             </tr>
             <tr>
                 <td>Mật khẩu(*) : </td>
-                <td><input type="password" name="matkhau" value="<?php echo $matkhau?>" class="form-control" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" title="Mật khẩu ít nhất 8 ký tự gồm số và chữ cái"></td>
+                <td><input type="password" name="matkhau" value="<?php echo $matkhau?>" class="form-control" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" title="Mật khẩu ít nhất 8 ký tự gồm số và chữ cái" required></td>
                 <td><div class="error"><?php echo $errors['matkhau']; ?></div></td>
             </tr>
         </table>
