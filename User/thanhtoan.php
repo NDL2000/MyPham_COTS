@@ -131,7 +131,7 @@ if (isset($_POST['order'])) {
     $sql = "select tinh_thanhpho.name as tentp,quan_huyen.name as quanhuyen,xaphuong_thitran.name as xa from tinh_thanhpho,quan_huyen,xaphuong_thitran
             WHERE tinhthanhpho.matp=quanhuyen.matp and quanhuyen.maqh=xaphuongthitran.maqh and tinhthanhpho.matp='$matp'
             and quanhuyen.maqh='$maqh' and xaphuongthitran.xaid='$xaid'";
-    $result = mysqli_query($conn1, $sql);
+    $result = mysqli_query($conn, $sql);
     if ($result->num_rows > 0) {
         while ($rows = $result->fetch_array()) {
             $DiaChi = $_POST['address'] . ", " . $rows['xa'] . ", " . $rows['quanhuyen'] . ", " . $rows['tentp'];
