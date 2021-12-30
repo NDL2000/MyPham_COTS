@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 27, 2021 lúc 03:37 AM
+-- Thời gian đã tạo: Th12 30, 2021 lúc 10:27 AM
 -- Phiên bản máy phục vụ: 10.4.20-MariaDB
 -- Phiên bản PHP: 8.0.8
 
@@ -86,13 +86,13 @@ CREATE TABLE `cthoadon` (
 --
 
 INSERT INTO `cthoadon` (`MaHD`, `MaSP`, `TenKH`, `GiaGoc`, `TyLeKM`, `SoLuongMua`) VALUES
-(19, 11, 'Nguyễn Đức Lý', '1', 0, 1),
-(21, 9, 'a', '1', 0, 2),
 (38, 8, 'Lý', '125000', 0, 1),
 (39, 9, 'Lý', '370000', 0, 1),
 (40, 8, 'Lý', '125000', 0, 2),
 (40, 10, 'Lý', '750000', 0, 1),
-(41, 9, 'Lý', '370000', 0, 1);
+(41, 9, 'Lý', '370000', 0, 1),
+(42, 8, 'Lý', '125000', 0, 1),
+(43, 9, 'Lý', '370000', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -123,6 +123,13 @@ CREATE TABLE `danhgia` (
   `NgayDG` date NOT NULL,
   `TrangThai` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `danhgia`
+--
+
+INSERT INTO `danhgia` (`MaDG`, `MaSP`, `TenDangNhap`, `SoSao`, `NoiDung`, `NgayDG`, `TrangThai`) VALUES
+(9, 8, 'nguyenducly2000@gmail.com', 5, '', '2021-12-30', 0);
 
 -- --------------------------------------------------------
 
@@ -169,12 +176,12 @@ CREATE TABLE `hoadon` (
 --
 
 INSERT INTO `hoadon` (`TenDangNhap`, `MaHD`, `NgayHD`, `TrangThai`, `GhiChu`, `HoTenNN`, `SoDienThoaiNN`, `DiaChiNN`, `MaNCC`) VALUES
-('b', 19, '2021-11-22', 'Đang giao', NULL, 'a', 'a', 'a', 2),
-('c', 21, '2021-11-22', 'Chờ xét duyệt', 'a', 'a', 'a', 'a', 6),
 ('nguyenducly2000@gmail.com', 38, '2021-12-14', 'Chờ xét duyệt', '', 'Lý', '0234567892', 'Abc, Xã Liên Ninh, Huyện Thanh Trì, Thành phố Hà Nội', 2),
 ('nguyenducly2000@gmail.com', 39, '2021-12-14', 'Đã giao', '', 'Lý', '0234567892', 'Abc, Xã Liên Ninh, Huyện Thanh Trì, Thành phố Hà Nội', 6),
 ('nguyenducly2000@gmail.com', 40, '2021-12-16', 'Chờ xét duyệt', '', 'Lý', '0963700284', 'An Tây, Phường Đồng Mai, Quận Hà Đông, Thành phố Hà Nội', 2),
-('nguyenducly2000@gmail.com', 41, '2021-12-16', 'Đã giao', '', 'Lý', '0963700284', 'An Tây, Phường Đồng Mai, Quận Hà Đông, Thành phố Hà Nội', 6);
+('nguyenducly2000@gmail.com', 41, '2021-12-16', 'Đã giao', '', 'Lý', '0963700284', 'An Tây, Phường Đồng Mai, Quận Hà Đông, Thành phố Hà Nội', 6),
+('nguyenducly2000@gmail.com', 42, '2021-12-30', 'Chờ xét duyệt', '', 'Lý', '0963700286', '', 2),
+('nguyenducly2000@gmail.com', 43, '2021-12-30', 'Đang giao', '', 'Lý', '0963700286', '', 6);
 
 -- --------------------------------------------------------
 
@@ -1038,8 +1045,8 @@ CREATE TABLE `sanpham` (
 --
 
 INSERT INTO `sanpham` (`MaSP`, `MaNCC`, `TenSP`, `DonGia`, `HinhAnh`, `MaDM`, `TrangThai`, `MoTa`, `SoLuongTon`, `TyLeThue`) VALUES
-(8, 2, 'COMBO MINI TRỊ MỤN SIÊU HIỆU QUẢ TRONG 7 NGÀY', '125000', 'product_8.png', 1, 1, 'Có Combo Mini Trị Mụn Siêu Hiệu Quả Trong 7 Ngày việc trị mụn trở nên đơn giản hơn . M.E.N.L.Y xin giới thiệu đến các bạn bộ Combo Mini Trị Mụn Siêu Hiệu Quả Chỉ Trong 7 Ngày được tách ra từ bộ trị mụn siêu quả với vóc dáng nhỏ bé, tiện lợi cho bạn khi mang theo bên người. Với thành phần 100% thiên nhiên an toàn cho da. M.E.N.L.Y tự hào là mỹ phẩm thiên nhiên đầu tiên tại Việt Nam ', 7, 0),
-(9, 6, 'KEM TRỊ MỤN MENLY', '370000', 'product_5.png', 1, 1, 'Sản phẩm được làm 100% từ thiên nhiên được nhập khẩu từ Anh Và Pháp vì vậy không gây kích ứng da , rất phù hợp với từng loại da mặt . Với công dụng làm trị mụn bọc , cám , đầu đen ,... . \" KEM TRỊ MỤN MENLY \" sẽ giúp bạn lấy lại vẻ đẹp trai và tự tin mọi người người xung quanh ', 4, 0),
+(8, 2, 'COMBO MINI TRỊ MỤN SIÊU HIỆU QUẢ TRONG 7 NGÀY', '125000', 'product_8.png', 1, 1, 'Có Combo Mini Trị Mụn Siêu Hiệu Quả Trong 7 Ngày việc trị mụn trở nên đơn giản hơn . M.E.N.L.Y xin giới thiệu đến các bạn bộ Combo Mini Trị Mụn Siêu Hiệu Quả Chỉ Trong 7 Ngày được tách ra từ bộ trị mụn siêu quả với vóc dáng nhỏ bé, tiện lợi cho bạn khi mang theo bên người. Với thành phần 100% thiên nhiên an toàn cho da. M.E.N.L.Y tự hào là mỹ phẩm thiên nhiên đầu tiên tại Việt Nam ', 6, 0),
+(9, 6, 'KEM TRỊ MỤN MENLY', '370000', 'product_5.png', 1, 1, 'Sản phẩm được làm 100% từ thiên nhiên được nhập khẩu từ Anh Và Pháp vì vậy không gây kích ứng da , rất phù hợp với từng loại da mặt . Với công dụng làm trị mụn bọc , cám , đầu đen ,... . \" KEM TRỊ MỤN MENLY \" sẽ giúp bạn lấy lại vẻ đẹp trai và tự tin mọi người người xung quanh ', 3, 0),
 (10, 2, 'CẶP ĐÔI TRỊ MỤN BỌC - TRỨNG CÁ MENLY TỐT NHẤT', '750000', 'product_9.png', 1, 1, 'Mụn bọc hay trứng cá là vấn đề rất thường gặp ở nam và nữ tuổi trẻ và tuổi dậy thì. Mụn có thể từ mức độ nhẹ chỉ là mụn đầu đen đến những trường hợp mụn bọc, viêm tấy đỏ khắp mặt. Điều trị mụn không đơn giản, cần có sự tư vấn và điều trị từ các bác sĩ chuyên khoa da liễu. Ngoài ra, tuân thủ điều trị và kiên nhẫn cũng là một trong những yếu tố quan trọng góp phần mau lành bệnh. Mỹ phẩm cho nam xin giới thiệu với các bạn một đòng sản phẩm chuyên trị mụn bọc và mụn cám rất hiệu quả , đang được rất nhiều người sử dụng hiện nay .', 9, 0),
 (11, 2, 'BỘ TRỊ MỤN BỌC,TRỨNG CÁ XÓA THÂM MENLY', '950000', 'product_10.png', 1, 1, 'Đầu tiên, trước khi đọc bài viết này, Mỹ Phẩm Cho Nam xin có đôi điều với các bạn. Nếu bạn nào tự nghĩ rằng da mặt của mình là đẹp nhất quả đất rồi, da mặt mình lúc nào cũng căng mịn, chẳng bao giờ có mụn và chất nhờn, hay những vết sẹo mụn, sẹo thâm không tồn tại trên mặt. Nếu vậy THÌ các bạn không cần đọc bài viết này làm gì cả nhé. Vì nó không cần thiết.', 9, 0),
 (12, 2, 'COMBO SẠCH MỤN CÁM, ĐẦU ĐEN MENLY', '560000', 'product_6.png', 1, 1, 'Sản phẩm đầu tiên và cũng là sản phẩm không thể thiếu trong Combo này chính là Sữa Rửa Mặt MENLY. Đây là dòng sản phẩm được sản xuất với công thức độc quyền dành riêng cho làn da nam giới. Là dòng sữa rửa mặt KHÔNG BỌT đầu tiên cho nam giới tại Việt Nam với độ pH 6.0 đạt CHUẨN đảm bảo lấy sạch bụi bẩn, nhờn thừa nhưng vẫn tuyệt đối AN TOÀN cho da.\r\n\r\nSữa Rửa Mặt MENLY với các thành phần tinh túy kết hợp với nhau gồm: Tinh chất nha đam, Đất sét xanh Pháp, Tinh dầu trà xanh, Tinh dầu bạc hà và Tinh dầu vỏ bưởi…', 10, 0),
@@ -1081,8 +1088,6 @@ CREATE TABLE `taikhoan` (
 
 INSERT INTO `taikhoan` (`TenDangNhap`, `Email`, `MatKhau`, `MaLoai`, `TrangThai`, `HoTen`, `GioiTinh`, `SoDienThoai`, `DiaChi`) VALUES
 ('admin', '', '$2y$10$bsdiqHJ.g2QoWC/Gpee7Bua9/VCY5zwYLyol3Mex0GWIcHufEuTlO', 'AD', 1, 'Nguyễn Đức Lý', 1, '0963700285', 'Quảng Nam'),
-('b', 'b', 'b', 'US', 1, 'Sử Phát Tuấn', 1, '0965752456', 'Đà Nẵng'),
-('c', 'c', 'c', 'US', 1, 'c', 1, 'c', 'c'),
 ('nguyenducly2000@gmail.com', 'nguyenducly2000@gmail.com', '$2y$10$GuVVCaJa.5SGl96S83okbuY3NZISkR.goG9Svbl8cQ/xv/fAaXKhS', 'US', 1, 'Nguyễn Đức Lý', 1, '0963700285', 'Quảng Nam'),
 ('nguyenvanthedtu@gmail.com', 'nguyenvanthedtu@gmail.com', '$2y$10$FgJnweN0ZtWy0KmW8RBfqOqluI93NdXDEeav.ZkYV2TS8XxaLMjJu', 'NCC', 1, 'Nguyễn Văn Thế', 1, '0123456789', 'Huế');
 
@@ -1104,7 +1109,7 @@ CREATE TABLE `thue` (
 --
 
 INSERT INTO `thue` (`ID`, `TyLeThue`, `TuNgay`, `DenNgay`) VALUES
-(8, 5, '2021-12-14', '2021-12-25');
+(8, 10, '2021-12-14', '2021-12-25');
 
 -- --------------------------------------------------------
 
@@ -12517,7 +12522,7 @@ ALTER TABLE `banner`
 -- AUTO_INCREMENT cho bảng `danhgia`
 --
 ALTER TABLE `danhgia`
-  MODIFY `MaDG` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `MaDG` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `danhmuc`
@@ -12529,7 +12534,7 @@ ALTER TABLE `danhmuc`
 -- AUTO_INCREMENT cho bảng `hoadon`
 --
 ALTER TABLE `hoadon`
-  MODIFY `MaHD` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `MaHD` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT cho bảng `khuyenmai`
