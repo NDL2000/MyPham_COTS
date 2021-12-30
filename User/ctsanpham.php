@@ -772,8 +772,8 @@ include './update_Date.php'; ?>
 															<h3 id="reply-title" class="comment-reply-title">Đánh giá sản phẩm <?php echo '"' . $row["TenSP"] . '"'; ?><small><a rel="nofollow" id="cancel-comment-reply-link" href="" style="display:none;">Hủy</a></small></h3><?php }
 																																																																		}
 																																																																	} ?>
-												<form action="" method="post" id="commentform" class="comment-form" novalidate>
-													<div class="comment-form-rating"><label for="rating">Đánh giá của bạn</label>
+												<form action="" method="post" id="commentform" class="comment-form">
+													<div class="comment-form-rating"><label for="rating">Đánh giá của bạn *</label>
 														<select name="rating" required>
 															<option value="5">5 sao</option>
 															<option value="4">4 sao</option>
