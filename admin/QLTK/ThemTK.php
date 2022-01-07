@@ -22,7 +22,7 @@
         <table>
             <tr>
                 <td>Tên đăng nhập(*) : </td>
-                <td><input type="text" name="tendangnhap" value="<?php echo $tendangnhap?>" class="form-control" ></td>
+                <td><input type="text" name="tendangnhap" value="<?php echo $tendangnhap?>" class="form-control" required></td>
                 <td><div class="error"><?php echo $errors['tendangnhap']; ?></div></td>
             </tr>
             <tr>
