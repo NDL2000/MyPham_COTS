@@ -45,7 +45,7 @@
   <tbody>
       <?php
       //Xu ly Pagination
-      $sql = "SELECT * FROM sanpham";
+      $sql = "SELECT sp.MaSP,sp.MaNCC,sp.TenSP,sp.DonGia,sp.HinhAnh,sp.MaDM,sp.TrangThai,nx.SoLuongNhap,sp.TyLeThue,sp.SoLuongTon FROM sanpham as sp,nhapxuat as nx,nhacungcap as ncc where sp.MaSP=nx.MaSP and nx.GiaXuat = sp.DonGia and sp.MaNCC=ncc.MaNCC and sp.MaNCC='$prd_supplier'";
       $kq = mysqli_query($conn,$sql);
       $num_rows = mysqli_num_rows($kq); //So rows trong database
       $rows = 5;  //So rows muon hien thi
@@ -54,7 +54,7 @@
       }
       else {$page = 1;echo "<script>window.location.href='./index.php?url=qlsanpham&page=1'</script>"; }
       
-      $sql="SELECT sp.MaSP,sp.MaNCC,sp.TenSP,sp.DonGia,sp.HinhAnh,sp.MaDM,sp.TrangThai,nx.SoLuongNhap,sp.TyLeThue FROM sanpham as sp,nhapxuat as nx,nhacungcap as ncc where sp.MaSP=nx.MaSP and nx.GiaXuat = sp.DonGia and sp.MaNCC=ncc.MaNCC limit $page,$rows";
+      $sql="SELECT sp.MaSP,sp.MaNCC,sp.TenSP,sp.DonGia,sp.HinhAnh,sp.MaDM,sp.TrangThai,nx.SoLuongNhap,sp.TyLeThue,sp.SoLuongTon FROM sanpham as sp,nhapxuat as nx,nhacungcap as ncc where sp.MaSP=nx.MaSP and nx.GiaXuat = sp.DonGia and sp.MaNCC=ncc.MaNCC and sp.MaNCC='$prd_supplier' limit $page,$rows";
       
       $result = mysqli_query($conn,$sql);
       // $sql_price="SELECT * FROM  nhapxuat INNER JOIN sanpham on nhapxuat.GiaXuat=sanpham.DonGia";
@@ -77,7 +77,7 @@
       <td><?php echo $row['MaDM'] ?></td>
       <td><?php if($row['TrangThai']==1) echo "Đang hiển thị";
         else echo "Chưa hiển thị"?></td>
-      <td><?php echo $row["SoLuongNhap"] ?></td>
+      <td><?php echo $row["SoLuongTon"] ?></td>
       <td><?php echo $row["TyLeThue"]." %"?></td>
       <div>
       <td>
